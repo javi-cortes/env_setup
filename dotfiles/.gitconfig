@@ -1,0 +1,64 @@
+[ui]
+    username = Javier Cortés <javier.cortes@roiback.com>
+[user]
+    name = Javier Cortés
+    email = javier.cortes@roiback.com
+[core]
+    editor = vim
+    excludesfile = /home/javi/roi/desarrollo/ignore
+[merge]
+    tool = kdiff3
+
+#[branch "master"]
+#    mergeoptions = --no-ff
+
+[diff]
+    guitool = kdiff3
+[mergetool "kdiff3"]
+    trustExitCode = false
+[difftool "kdiff3"]
+    trustExitCode = false
+[color]
+	branch = auto
+	diff = auto
+	status = auto
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+[alias]
+	co = checkout
+	cob = checkout -b 
+	br = branch
+	ci = commit
+	st = status
+	last = log -1 HEAD
+	staged = diff --cached
+	branch-name = "!git rev-parse --abbrev-ref HEAD"
+	out = "!git log origin/$(git branch-name)..$(git branch-name)"	
+
+	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
+	lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+	lds = log --pretty=format:"%C(yellow)%h\\ %aD%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+	glog = log --graph --oneline --decorate --all
+	lg3 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset)(%C(dim white)%p%C(reset)) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+	lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+	lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+    lg = !"git lg1"
+    lb = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+[push]
+	default = simple
+[include]
+	path = /home/javi/roi/desarrollo/gitconfig
