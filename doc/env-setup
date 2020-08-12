@@ -1,0 +1,26 @@
+# CONFIGURING ENV
+
+
+# pycharm desktop entry not working, put it under /usr/bin/*
+sudo ln -s ~/Downloads/pycharm-2020.2/bin/pycharm.sh /usr/bin/
+
+# set correct permission ssh files
+sudo chmod 600 ~/.ssh/id_rsa*
+
+# generating new sshkeys
+ssh-keygen -t rsa -b 4096 -C "javier.cortes.ortega@gmail.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+
+# installation
+# - dropbox
+# - rofi
+# - autorandr
+# - mlocate
+# - sublime
+# - i3
+# - terminator
+# - pavucontrol
+# - openfortigui
+# - fzf
+# - dsh
