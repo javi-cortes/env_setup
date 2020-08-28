@@ -16,5 +16,6 @@ ln -s $FOLDER/.javi-ascii . && echo ".javi linked"
 ln -s $FOLDER/.psqlrc . && echo ".psqlrc linked"
 ln -s $FOLDER/.vimrc . && echo ".vimrc linked"
 ln -s $FOLDER/.i3 . && echo ".i3 linked"
+ln -s $FOLDER/.xinitrc . && echo ".xinitrc linked"
 
 cd -

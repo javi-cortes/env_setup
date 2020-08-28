@@ -24,3 +24,6 @@ ssh-add ~/.ssh/id_rsa
 # - openfortigui
 # - fzf
 # - dsh
+# - docker
+# - fabric
+# - silversearcher-ag
