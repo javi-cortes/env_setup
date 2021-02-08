@@ -1,0 +1,59 @@
+---
+  - name: installing i3 in roles
+    hosts: all
+    vars:
+      # change this to your user
+      remote_user: vagrant
+      action: install
+    roles:
+      #- i3-gaps
+      #- utilities
+      - system-settings
+      #- themes
+      # Optional
+      #- xorg
+
+# TODO
+# ssh configs
+#code
+#conky
+#docker
+#docker-compose
+#dsh
+#kubectl
+#fireforx
+#chrome
+#node
+#nmap
+#npm
+#openfortigui
+##pgadmin4
+#compton
+#sublime
+#terminator
+#vlc
+#zoom
+
+#TODO:
+#    https://stackoverflow.com/questions/29392369/ansible-ssh-private-key-in-source-control
+#
+#    change keyboard to es
+#        execute: setxkbmap -layout es
+#
+#    get wallpapers this size atleast:
+#      dimensions:    7280x1440 pixels (1921x380 millimeters)
+#
+#
+#    xset r rate 250 100
+#
+#    LIGHTDM:
+#        https://github.com/nick92/Enso-OS/tree/master/greeter
+#        login page
+#    dunst
+#
+#
+#
+#
+#
+#    https://www.reddit.com/r/unixporn/comments/cgsang/i3gaps_spent_hours_configuring_polybar/
+#    i3 rice

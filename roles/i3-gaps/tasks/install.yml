@@ -1,0 +1,114 @@
+---
+
+- name: i3 - Add repos
+  command: "{{ item }}"  
+  with_items:
+    - /usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2021.02.02_all.deb keyring.deb SHA256:cccfb1dd7d6b1b6a137bb96ea5b5eef18a0a4a6df1d6c0c37832025d2edaa710
+    - dpkg -i ./keyring.deb
+    - echo "deb http://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-release | cut -f2 -d=) universe" >> /etc/apt/sources.list.d/sur5r-i3.list
+    - apt update
+  become: True
+
+- name: Ensure i3-gaps dependencies are installed
+  apt:
+    update_cache: true
+    force: yes
+    state: present
+    name: "{{ i3_gaps_build_dependencies }}"
+
+- name: ensure git parent path exists
+  file:
+    path: "{{ i3_gaps_git_path | dirname }}"
+    state: directory
+    mode: 0755
+
+- name: fetch i3-gaps latest version
+  shell: |
+    curl https://github.com/Airblader/i3/releases 2>/dev/null \
+    | grep -E '/Airblader/i3/releases/tag/[.0-9]+' \
+    | grep -Eo '[.0-9]+' \
+    | sort -V \
+    | tail -1
+  register: i3_gaps_release_tag
+  check_mode: False
+  changed_when: False
+
+- name: ensure i3-gaps is cloned
+  git:
+    repo: "{{ i3_gaps_git_url }}"
+    dest: "{{ i3_gaps_git_path }}"
+    version: gaps
+    clone: True
+    force: True
+    recursive: True
+    update: True
+    depth: 1
+
+- name: i3 - create build folder
+  file:
+    path: "{{ i3_gaps_git_path }}/build"
+    state: directory
+    mode: 0755
+
+- name: i3 - install with meson
+  command: "{{ item }}"
+  args:
+    chdir: "{{ i3_gaps_git_path }}/build"
+  with_items:
+    - meson ..
+    - ninja
+    - ninja install
+  become: True
+
+- name: Ensure autostart files
+  copy: src={{item}} dest=/home/{{remote_user}}/.config/autostart/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
+  with_fileglob:
+    - autostart/*
+
+- name: Ensure again autostart files
+  copy: src={{item}} dest=/usr/share/xsessions/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
+  with_fileglob:
+    - autostart/*
+
+- name: Ensure i3 config
+  copy: src={{item}} dest=/home/{{remote_user}}/.config/i3/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
+  with_fileglob:
+   - i3/*
+
+- name: Set permissions for i3 config directory
+  file: path=/home/{{remote_user}}/.i3 recurse='yes' owner={{remote_user}} group={{remote_user}} mode='u=rwX'
+
+- name: Ensure i3status config files
+  copy: src={{item}} dest=/home/{{remote_user}}/.config/i3status/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
+  with_fileglob:
+    - i3status/*
+
+- name: Install i3 utility-scripts autolock 
+  copy: src={{item}} dest=/home/{{remote_user}}/.config/i3/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
+  with_fileglob:
+    - autolock/*
+
+- name: Making autolock executable
+  file:
+    path: /home/{{remote_user}}/.config/i3/autolock.sh
+    mode: a+x
+
+- name: Install i3 utility-scripts i3exit 
+  copy: src={{item}} dest=/home/{{remote_user}}/.config/i3/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
+  with_fileglob:
+    - i3exit/*
+
+- name: Making i3exit executable
+  file:
+    path: /home/{{remote_user}}/.config/i3/i3exit
+    mode: a+x
+
+- name: Install i3 utility-scripts brightness 
+  copy: src={{item}} dest=/home/{{remote_user}}/.config/i3/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
+  with_fileglob:
+    - brightness/*
+
+- name: Making brightness executable
+  file:
+    path: /home/{{remote_user}}/.config/i3/brightness.sh
+    mode: a+x

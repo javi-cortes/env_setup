@@ -1,0 +1,14 @@
+---
+- name: Remove config entries
+  file: src={{item}} dest=/home/{{remote_user}}/ state=absent
+  with_fileglob:
+    - bash_history/*
+    - bashrc/*
+    - dsh/*
+    - gitconfig/*
+    - git_prompt_custom/*
+    - javi/*
+    - psqlrc/*
+    - vimrc/*
+    - xinitrc/*
+
