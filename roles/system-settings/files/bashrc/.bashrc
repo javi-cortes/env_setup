@@ -196,8 +196,9 @@ source ~/.gitlab_config
 ###########################
 # Git (ssh forwarded)
 
-export GIT_AUTHOR_NAME=$(git config user.name)
-export GIT_AUTHOR_EMAIL=$(git config user.email)
+# This variable is used on commiting in other projects... i dont want this ! :(
+#export GIT_AUTHOR_NAME=$(git config user.name)
+#export GIT_AUTHOR_EMAIL=$(git config user.email)
 
 # Hg (ssh forwarded)
 

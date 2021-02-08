@@ -7,3 +7,4 @@ utilities_dependencies:
   - xautolock
   - i3lock
   - imagemagick # adds mogrify
+  - terminator # adds mogrify

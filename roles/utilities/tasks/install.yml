@@ -1,6 +1,4 @@
 ---
-# Install additional utilities and extensions for i3.
-
 - name: Ensure dependencies are installed
   apt:
     update_cache: true
@@ -8,8 +6,12 @@
     state: present
     name: "{{ utilities_dependencies }}"
 
-
 - name: Ensure rofi config files
   copy: src={{item}} dest=/home/{{remote_user}}/.config/rofi/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
   with_fileglob:
     - rofi/*
+
+- name: Ensure terminator config files
+  copy: src={{item}} dest=/home/{{remote_user}}/.config/terminator/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
+  with_fileglob:
+    - terminator/*

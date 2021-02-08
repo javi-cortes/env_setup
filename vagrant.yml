@@ -7,7 +7,7 @@
       action: install
     roles:
       #- i3-gaps
-      #- utilities
+      - utilities
       - system-settings
       #- themes
       # Optional
