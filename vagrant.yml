@@ -8,15 +8,18 @@
     roles:
       #- i3-gaps
       #- utilities
-      - system-settings
+      #- system-settings
       # apps
-      - sublime
+      #- sublime
+      - fzf
+      
       #- themes
       # Optional
       #- xorg
 
 # TODO
 # ssh configs
+#fzf
 #code
 #conky
 #docker
@@ -31,7 +34,6 @@
 #openfortigui
 ##pgadmin4
 #compton
-#terminator
 #vlc
 #zoom
 
