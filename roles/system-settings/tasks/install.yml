@@ -11,4 +11,5 @@
     - psqlrc/.*
     - vimrc/.*
     - xinitrc/.*
+    - inputrc/.*
 

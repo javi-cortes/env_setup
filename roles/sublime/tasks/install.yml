@@ -1,0 +1,40 @@
+---
+- name: Install GPG key for SubLimeText
+  apt_key:
+    url: https://download.sublimetext.com/sublimehq-pub.gpg
+    state: present
+  become: true
+
+- name: Add apt repositories
+  apt_repository:
+    repo: "{{ sublime_apt_repo }}"
+    state: present
+    update_cache: yes
+  become: true
+
+- name: Install sublime
+  apt: pkg={{item}} update_cache=true force=yes state=present
+  with_items:
+   - sublime-text
+
+- name: ensure sublime package directory exists
+  file:
+    path: "{{ sublime_package_path }}"
+    state: directory
+    mode: 0700
+
+- name: ensure sublime package control is installed
+  get_url:
+    url: "https://packagecontrol.io/Package%20Control.sublime-package"
+    dest: "{{ sublime_package_path }}/Package Control.sublime-package"
+    timeout: 30
+  register: task_result
+  until: task_result is succeeded
+  retries: 30
+  delay: 10
+
+- name: Ensure sublime user preference settings
+  copy: src={{item}} dest=/home/{{remote_user}}/.config/sublime-text-3/Packages/User/ owner={{remote_user}} group={{remote_user}} mode='u=rw' force=yes   
+  with_fileglob:
+    - user-settings/*
+    

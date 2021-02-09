@@ -7,8 +7,10 @@
       action: install
     roles:
       #- i3-gaps
-      - utilities
+      #- utilities
       - system-settings
+      # apps
+      - sublime
       #- themes
       # Optional
       #- xorg
@@ -29,7 +31,6 @@
 #openfortigui
 ##pgadmin4
 #compton
-#sublime
 #terminator
 #vlc
 #zoom
