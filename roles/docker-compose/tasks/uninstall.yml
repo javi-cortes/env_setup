@@ -1,0 +1,6 @@
+---
+
+- name: Install docker
+  apt: pkg={{item}} update_cache=true force=yes state=absent
+  with_items:
+   - docker-compose

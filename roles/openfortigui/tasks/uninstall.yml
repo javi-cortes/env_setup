@@ -1,0 +1,18 @@
+---
+- name: Ensure openfortigui repo is absent
+  apt_key:
+    url: keyserver.ubuntu.com 2FAB19E7CCB7F415
+    state: absent
+  become: true   
+
+- name: Add openfortigui repositories
+  apt_repository:
+    repo: deb https://apt.iteas.at/iteas xenial main
+    state: absent
+    update_cache: yes
+  become: true
+
+- name: Install openfortigui
+  apt: pkg={{item}} update_cache=true force=yes state=absent
+  with_items:
+   - openfortigui

@@ -1,0 +1,7 @@
+---
+
+docker_apt_repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+
+# ID: curl https://download.docker.com/linux/debian/gpg | gpg --list-packets
+docker_apt_key: https://download.docker.com/linux/debian/gpg
+

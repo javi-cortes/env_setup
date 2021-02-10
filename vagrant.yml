@@ -9,30 +9,25 @@
       #- i3-gaps
       #- utilities
       #- system-settings
-      # -- Apps --
+      ## -- Apps --
       #- sublime
       #- fzf
       #- vscode
-      - docker
+      #- docker
+      #- docker-compose
+      #- google-chrome
+      #- firefox
+      #- node
+      #- libreoffice
+      #- vlc
+      #- openfortigui
       #- themes
 
 # TODO
 # latte dock icons desktop https://store.kde.org/p/1169519
 # ssh configs
-#docker
-#docker-compose
-#dsh
 #kubectl
-#fireforx
-#chrome
-#node
-#nmap
-#libreoffice
-#npm
-#openfortigui
 ##pgadmin4
-#compton
-#vlc
 #zoom
 #conky
 

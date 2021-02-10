@@ -1,0 +1,28 @@
+---
+- name: Ensure openfortigui repo is present
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 2FAB19E7CCB7F415
+    state: present
+  become: true   
+
+# Cant resolve the repo URL inline so we need to make these steps beforehand
+- name: obtain distro
+  shell: "grep '^DISTRIB_CODENAME=' /etc/lsb-release | cut -f2 -d="
+  register: distro
+
+- name: obtain repo url
+  shell: "echo ' deb https://apt.iteas.at/iteas {{ distro.stdout }} main'"
+  register: repo_url
+
+- name: Add openfortigui repositories
+  apt_repository:
+    repo: "{{ repo_url.stdout }}"
+    state: present
+    update_cache: yes
+  become: true
+
+- name: Install openfortigui
+  apt: pkg={{item}} update_cache=true force=yes state=present
+  with_items:
+   - openfortigui

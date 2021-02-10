@@ -1,0 +1,13 @@
+---
+- name: Add libreoffice repositories
+  apt_repository:
+    repo: ppa:libreoffice/ppa
+    state: present
+    update_cache: yes
+  become: true
+
+- name: Install libreoffice
+  apt: pkg={{item}} update_cache=true force=yes state=present
+  with_items:
+   - libreoffice
+  become: true

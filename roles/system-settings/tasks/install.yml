@@ -4,7 +4,6 @@
   with_fileglob:
     - bash_history/.*
     - bashrc/.*
-    - dsh/.*
     - gitconfig/.*
     - git_prompt_custom/.*
     - javi/.*
@@ -18,3 +17,37 @@
     path: /home/{{remote_user}}/.profile    
     line: 'setxkbmap -layout es'
     insertafter: EOF
+
+- name: Install dsh
+  apt: pkg={{item}} update_cache=true force=yes state=present
+  with_items:
+   - dsh
+
+- name: Create dsh directory if it does not exist
+  ansible.builtin.file:
+    path: /home/{{remote_user}}/.dsh
+    state: directory
+    mode: '0755'
+
+- name: Create dsh group if it does not exist
+  ansible.builtin.file:
+    path: /home/{{remote_user}}/.dsh/group
+    state: directory
+    mode: '0755'
+
+- name: Create dsh config if it does not exist
+  ansible.builtin.file:
+    path: /home/{{remote_user}}/.dsh/config
+    state: directory
+    mode: '0755'
+
+- name: Ensure dsh config settings
+  copy: src={{item}} dest=/home/{{remote_user}}/.dsh owner={{remote_user}} group={{remote_user}} mode='u=rw' force=yes   
+  with_fileglob:
+    - dsh/dsh.conf
+
+
+
+
+
+

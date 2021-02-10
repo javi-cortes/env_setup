@@ -1,0 +1,13 @@
+---
+- name: Remove libreoffice repositories
+  apt_repository:
+    repo: ppa:libreoffice/ppa
+    state: absent
+    update_cache: yes
+  become: true
+
+- name: Uninstall libreoffice
+  apt: pkg={{item}} update_cache=true force=yes state=absent
+  with_items:
+   - libreoffice
+  become: true

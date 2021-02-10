@@ -1,0 +1,31 @@
+---
+- name: Install required system packages
+  apt: name={{ item }} state=latest update_cache=yes    
+  loop: [ 'apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common', 'python3-pip', 'virtualenv', 'python3-setuptools']
+
+
+- name: Ensure docker repo is present
+  apt_key:
+    url: "{{ docker_apt_key }}"
+    state: present
+  become: true   
+
+- name: Add docker repositories
+  apt_repository:
+    repo: "{{ docker_apt_repo }}"
+    state: present
+    update_cache: yes
+  become: true
+
+- name: Install docker
+  apt: pkg={{item}} update_cache=true force=yes state=present
+  with_items:
+   - docker-ce
+
+- name: ensure user is added to docker group
+  user:
+    name: "{{ remote_user }}"
+    groups: docker
+    append: True
+    update_password: on_create
+  become: True

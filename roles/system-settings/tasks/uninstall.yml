@@ -12,3 +12,8 @@
     - vimrc/*
     - xinitrc/*
 
+
+- name: Uninstall dsh
+  apt: pkg={{item}} update_cache=true force=yes state=absent
+  with_items:
+   - dsh
