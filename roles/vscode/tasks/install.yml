@@ -1,0 +1,26 @@
+---
+- name: Install vscode dependencies
+  apt: pkg={{item}} update_cache=true force=yes state=present
+  with_items:
+   - software-properties-common
+   - apt-transport-https
+   - wget
+
+- name: Install key for VSCode
+  apt_key:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    state: present
+  become: true
+
+- name: Add vscode repositories
+  apt_repository:
+    repo: "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+    state: present
+    update_cache: yes
+  become: true
+
+- name: Install vscode 
+  apt: pkg={{item}} update_cache=true force=yes state=present
+  with_items:
+   - code
+

@@ -11,15 +11,14 @@
       #- system-settings
       # apps
       #- sublime
-      - fzf
-      
+      #- fzf
+      - vscode
       #- themes
       # Optional
       #- xorg
 
 # TODO
 # ssh configs
-#fzf
 #code
 #conky
 #docker
