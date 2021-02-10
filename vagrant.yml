@@ -6,21 +6,20 @@
       remote_user: vagrant
       action: install
     roles:
-      #- i3-gaps
-      - utilities
+      - i3-gaps
+      #- utilities
       #- system-settings
       # apps
       #- sublime
       #- fzf
       #- vscode
-      - themes
+      #- themes
       # Optional
       #- xorg
 
 # TODO
+# latte dock icons desktop https://store.kde.org/p/1169519
 # ssh configs
-#code
-#conky
 #docker
 #docker-compose
 #dsh
@@ -29,12 +28,14 @@
 #chrome
 #node
 #nmap
+#libreoffice
 #npm
 #openfortigui
 ##pgadmin4
 #compton
 #vlc
 #zoom
+#conky
 
 #TODO:
 #    https://stackoverflow.com/questions/29392369/ansible-ssh-private-key-in-source-control

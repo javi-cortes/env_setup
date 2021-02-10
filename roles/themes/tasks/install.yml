@@ -12,7 +12,7 @@
    - compton
    - rofi
    - terminator 
-   - conky
+   #- conky
    #- conky-all
    #- conky-manager
    #- conky-manager-extra
