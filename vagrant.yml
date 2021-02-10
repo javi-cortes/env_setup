@@ -6,16 +6,15 @@
       remote_user: vagrant
       action: install
     roles:
-      - i3-gaps
+      #- i3-gaps
       #- utilities
       #- system-settings
-      # apps
+      # -- Apps --
       #- sublime
       #- fzf
       #- vscode
+      - docker
       #- themes
-      # Optional
-      #- xorg
 
 # TODO
 # latte dock icons desktop https://store.kde.org/p/1169519

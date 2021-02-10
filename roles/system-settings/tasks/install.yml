@@ -13,3 +13,8 @@
     - xinitrc/.*
     - inputrc/.*
 
+- name: Ensure we have keyboard es in .profile
+  ansible.builtin.lineinfile:
+    path: /home/{{remote_user}}/.profile    
+    line: 'setxkbmap -layout es'
+    insertafter: EOF
