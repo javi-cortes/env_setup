@@ -302,7 +302,20 @@ for_window [class="^jetbrains-.+"][window_type=dialog] focus
 for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
 
 
-gaps inner 10
+# Hide borders
+hide_edge_borders none
+ 
+#############################
+### settings for i3-gaps: ###
+#############################
+
+# Set inner/outer gaps
+ gaps inner 10
+ 
+
+# Activate smart borders (always)
+smart_borders on
+
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"

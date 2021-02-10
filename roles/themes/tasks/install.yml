@@ -4,7 +4,7 @@
 #- name: Ensure required apt repositories
 #  apt_repository: repo='{{item}}' state=present update_cache=yes
 #  with_items:
-#    - ppa:numix/ppa
+#    - ppa:linuxmint-tr/araclar
 
 - name: Ensure packages
   apt: pkg={{item}} update_cache=true force=yes state=present
@@ -12,16 +12,11 @@
    - compton
    - rofi
    - terminator 
+   - conky
+   #- conky-all
+   #- conky-manager
+   #- conky-manager-extra
    #- lightdm-gtk-greeter
-   #- fonts-roboto
-   #- fonts-powerline
-   #- numix-gtk-theme
-   #- numix-icon-theme-circle
-   #- feh
-   #- conky
-   #- curl
-   #- jq
-   #- xfce4-terminal
 
 - name: Ensure rofi config files
   copy: src={{item}} dest=/home/{{remote_user}}/.config/rofi/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
@@ -36,11 +31,6 @@
   with_fileglob:
     - terminator/*
 
-#- name: Ensure autostart
-#  copy: src={{item}} dest=/home/{{remote_user}}/.config/autostart/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
-#  with_fileglob:
-#   - autostart/*
-#
 #- name: Ensure conky config directory
 #  file: path=/home/{{remote_user}}/.conky state=directory
 #
