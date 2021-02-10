@@ -7,13 +7,13 @@
       action: install
     roles:
       #- i3-gaps
-      #- utilities
+      - utilities
       #- system-settings
       # apps
       #- sublime
       #- fzf
-      - vscode
-      #- themes
+      #- vscode
+      - themes
       # Optional
       #- xorg
 
