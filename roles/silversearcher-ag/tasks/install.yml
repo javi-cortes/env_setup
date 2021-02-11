@@ -1,0 +1,4 @@
+- name: Install silversearcher-ag
+  apt: pkg={{item}} update_cache=true force=yes state=present
+  with_items:
+   - silversearcher-ag

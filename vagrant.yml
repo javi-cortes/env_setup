@@ -21,36 +21,24 @@
       #- libreoffice
       #- vlc
       #- openfortigui
+      #- zoom
+      #- silversearcher-ag
       #- themes
 
 # TODO
-# latte dock icons desktop https://store.kde.org/p/1169519
+# pavucontrol
+# silversearcher-ag
 # ssh configs
-#kubectl
-##pgadmin4
-#zoom
-#conky
 
 #TODO:
 #    https://stackoverflow.com/questions/29392369/ansible-ssh-private-key-in-source-control
-#
-#    change keyboard to es
-#        execute: setxkbmap -layout es
 #
 #    get wallpapers this size atleast:
 #      dimensions:    7280x1440 pixels (1921x380 millimeters)
 #
 #
-#    xset r rate 250 100
-#
 #    LIGHTDM:
 #        https://github.com/nick92/Enso-OS/tree/master/greeter
 #        login page
-#    dunst
-#
-#
-#
-#
-#
 #    https://www.reddit.com/r/unixporn/comments/cgsang/i3gaps_spent_hours_configuring_polybar/
 #    i3 rice

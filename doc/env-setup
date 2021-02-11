@@ -16,7 +16,6 @@ ssh-add ~/.ssh/id_rsa
 # - dropbox
 # - rofi
 # - autorandr
-# - mlocate
 # - sublime
 # - i3
 # - terminator
