@@ -3,10 +3,29 @@
     hosts: all
     become: yes
     vars_files:
-      - vars/defaults.yml
       - vars/vars.yml
     roles:
-      - i3
-      - themes
+      - i3-gaps
       - utilities
+      - system-settings
+      - sublime
+      - fzf
+      - vscode
+      - docker
+      - docker-compose
+      - google-chrome
+      - firefox
+      - node
+      - libreoffice
+      - vlc
+      - openfortigui
+      - zoom
+      - silversearcher-ag
+      - pulseaudio
+      - themes
 
+# TODO
+# ssh configs
+
+#TODO:
+#    https://stackoverflow.com/questions/29392369/ansible-ssh-private-key-in-source-control
