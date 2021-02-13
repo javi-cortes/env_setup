@@ -4,7 +4,6 @@ utilities_dependencies:
   - x11-xserver-utils # xrandr
   - feh
   - xautolock
-  - i3lock
   - imagemagick # adds mogrify
   - nmap
 

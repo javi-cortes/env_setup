@@ -6,7 +6,7 @@
       remote_user: vagrant
       action: install
     roles:
-      #- i3-gaps
+      - i3-gaps
       #- utilities
       #- system-settings
       ## -- Apps --
@@ -23,11 +23,10 @@
       #- openfortigui
       #- zoom
       #- silversearcher-ag
+      #- pulseaudio
       #- themes
 
 # TODO
-# pavucontrol
-# silversearcher-ag
 # ssh configs
 
 #TODO:

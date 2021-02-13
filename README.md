@@ -39,4 +39,5 @@ vagrant up
 
 
 ## TODO
-
+  * Polybar
+  * Lightdm greeter:https://github.com/nick92/Enso-OS/tree/master/greeter

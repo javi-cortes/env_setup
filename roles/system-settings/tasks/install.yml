@@ -13,7 +13,7 @@
     - inputrc/.*
 
 - name: Ensure we have keyboard es in .profile
-  ansible.builtin.lineinfile:
+  lineinfile:
     path: /home/{{remote_user}}/.profile    
     line: 'setxkbmap -layout es'
     insertafter: EOF
@@ -24,19 +24,19 @@
    - dsh
 
 - name: Create dsh directory if it does not exist
-  ansible.builtin.file:
+  file:
     path: /home/{{remote_user}}/.dsh
     state: directory
     mode: '0755'
 
 - name: Create dsh group if it does not exist
-  ansible.builtin.file:
+  file:
     path: /home/{{remote_user}}/.dsh/group
     state: directory
     mode: '0755'
 
 - name: Create dsh config if it does not exist
-  ansible.builtin.file:
+  file:
     path: /home/{{remote_user}}/.dsh/config
     state: directory
     mode: '0755'
@@ -46,8 +46,13 @@
   with_fileglob:
     - dsh/dsh.conf
 
+- name: Create .javirc if it does not exist
+  file:
+    path: /home/{{remote_user}}/.javirc
+    state: touch
 
-
-
-
-
+- name: Write eval ssh to javirc
+  command: "{{ item }}"  
+  with_items:
+    - echo 'eval $(keychain --eval --agents ssh id_rsa)' >> /home/{{remote_user}}/.javirc
+  become: true

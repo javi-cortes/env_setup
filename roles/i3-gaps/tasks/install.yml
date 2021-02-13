@@ -97,6 +97,49 @@
   with_fileglob:
     - i3status/*
 
+- name: ensure i3-lock-color is cloned
+  git:
+    repo: "{{ i3_lock_color_url }}"
+    dest: "{{ i3_lock_color_path }}"
+    clone: True
+    force: True
+    recursive: True
+    update: True
+    depth: 1
+
+- name: i3-lock-color install
+  command: "{{ item }}"
+  args:
+    chdir: "{{ i3_lock_color_path }}"
+  with_items:
+    - chmod +x install-i3lock-color.sh
+    - ./install-i3lock-color.sh
+  become: True
+
+- name: ensure betterlockscreen is cloned
+  git:
+    repo: "{{ betterlockscreen_url }}"
+    dest: "{{ betterlockscreen_path }}"
+    clone: True
+    force: True
+    recursive: True
+    update: True
+    depth: 1
+
+- name: ensure ~/.local/bin folder exists
+  file:
+    path: "/home/{{remote_user}}/.local/bin/"
+    state: directory
+    mode: 0755
+
+- name: betterlockscreen install
+  command: "{{ item }}"
+  args:
+    chdir: "{{ betterlockscreen_path }}"
+  with_items:
+    - cp betterlockscreen /usr/local/bin/
+  become: True
+
 - name: Install i3 utility-scripts autolock 
   copy: src={{item}} dest=/home/{{remote_user}}/.config/i3/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
   with_fileglob:
@@ -126,3 +169,8 @@
   file:
     path: /home/{{remote_user}}/.config/i3/brightness.sh
     mode: a+x
+
+- name: Remove keyring.deb 
+  file:
+    path: /home/{{remote_user}}/keyring.deb 
+    state: absent

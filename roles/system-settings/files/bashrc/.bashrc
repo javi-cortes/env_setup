@@ -159,8 +159,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-source ~/.roibackrc
-source ~/.jcortesrc
 
 
 get_dbback(){
@@ -190,8 +188,6 @@ function actualiza_librerias() {
 
 # git config visual commandline 
 source ~/.git_prompt_custom
-# gitlab config
-source ~/.gitlab_config
 
 ###########################
 # Git (ssh forwarded)

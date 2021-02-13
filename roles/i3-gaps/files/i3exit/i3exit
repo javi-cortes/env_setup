@@ -2,7 +2,7 @@
 
 case "$1" in
     lock)
-        exec i3lock -t -i $(find ~/.config/wallpapers/ | shuf -n1)
+        exec i3lock -t -i -e $(find ~/.config/wallpapers/ | shuf -n1)
         ;;
     logout)
         i3-msg exit
