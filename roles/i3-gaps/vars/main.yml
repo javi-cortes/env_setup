@@ -5,8 +5,6 @@ i3_gaps_git_path: "/home/{{remote_user}}/.cache/i3-gaps-git"
 i3_gaps_git_url: https://github.com/Airblader/i3 
 i3_lock_color_url: https://github.com/Raymo111/i3lock-color.git
 i3_lock_color_path: "/tmp/i3lock-color"
-betterlockscreen_url: https://github.com/pavanjadhaw/betterlockscreen
-betterlockscreen_path: "/tmp/betterlockscreen"
 
 i3_gaps_build_dependencies:
   - autoconf

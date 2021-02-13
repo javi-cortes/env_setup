@@ -116,29 +116,13 @@
     - ./install-i3lock-color.sh
   become: True
 
-- name: ensure betterlockscreen is cloned
-  git:
-    repo: "{{ betterlockscreen_url }}"
-    dest: "{{ betterlockscreen_path }}"
-    clone: True
-    force: True
-    recursive: True
-    update: True
-    depth: 1
-
-- name: ensure ~/.local/bin folder exists
-  file:
-    path: "/home/{{remote_user}}/.local/bin/"
-    state: directory
-    mode: 0755
 
 - name: betterlockscreen install
-  command: "{{ item }}"
-  args:
-    chdir: "{{ betterlockscreen_path }}"
-  with_items:
-    - cp betterlockscreen /usr/local/bin/
-  become: True
+  copy: src={{item}} dest=/usr/local/bin/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
+  with_fileglob:
+    # this version is modified by me
+    - betterlockscreen/*
+  become: true
 
 - name: Install i3 utility-scripts autolock 
   copy: src={{item}} dest=/home/{{remote_user}}/.config/i3/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
