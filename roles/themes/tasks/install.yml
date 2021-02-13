@@ -1,22 +1,10 @@
 ---
-# Install and setup the i3 and lightdm theme.
-
-#- name: Ensure required apt repositories
-#  apt_repository: repo='{{item}}' state=present update_cache=yes
-#  with_items:
-#    - ppa:linuxmint-tr/araclar
-
 - name: Ensure packages
   apt: pkg={{item}} update_cache=true force=yes state=present
   with_items:
    - compton
    - rofi
    - terminator 
-   #- conky
-   #- conky-all
-   #- conky-manager
-   #- conky-manager-extra
-   #- lightdm-gtk-greeter
 
 - name: Ensure rofi config files
   copy: src={{item}} dest=/home/{{remote_user}}/.config/rofi/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
@@ -31,57 +19,38 @@
   with_fileglob:
     - terminator/*
 
-#- name: Ensure conky config directory
-#  file: path=/home/{{remote_user}}/.conky state=directory
-#
-#- name: Ensure conky left config from template
-#  template:
-#    src: 'conkyrc_left'
-#    dest: '/home/{{ remote_user }}/.conky/'
-#    owner: '{{ remote_user }}'
-#    group: '{{ remote_user }}'
-#    mode: 'u=rw'
-#
-#- name: Ensure conky right config from template
-#  template:
-#    src: 'conkyrc_right'
-#    dest: '/home/{{ remote_user }}/.conky/'
-#    owner: '{{ remote_user }}'
-#    group: '{{ remote_user }}'
-#    mode: 'u=rw'
-#
-#- name: Set permissions
-#  file: path=/home/{{remote_user}}/.conky recurse='yes' owner={{remote_user}} group={{remote_user}} mode='u=rwX'
+- name: Ensure wallpapers folder exists
+  file:
+    path: "{{wallpapers_path}}"
+    state: directory
+    mode: 0755
 
-#
-#- name: Set lightdm greeter
-#  lineinfile: dest=/etc/lightdm/lightdm-gtk-greeter.conf line='[greeter]'
-#
-#- name: Set lightdm theme
-#  lineinfile: dest=/etc/lightdm/lightdm-gtk-greeter.conf regexp="^theme-name.*" line='theme-name=Numix' insertafter="[greeter]"  state=present
-#
-#- name: Set lightdm icon theme
-#  lineinfile: dest=/etc/lightdm/lightdm-gtk-greeter.conf regexp="^icon-theme-name.*" line='icon-theme-name=Numix-Circle' insertafter="[greeter]" state=present
-#
-#- name: Set lightdm background
-#  lineinfile: dest=/etc/lightdm/lightdm-gtk-greeter.conf regexp="^background.*" line='background=/usr/share/backgrounds/girl_face_explosion.jpg' insertafter="[greeter]" state=present
-#
-#- name: Disable lightdm user background
-#  lineinfile: dest=/etc/lightdm/lightdm-gtk-greeter.conf regexp="^user-background.*" line='user-background = false' insertafter="[greeter]" state=present
-#
-#- name: Ensure fonts
-#  copy: src={{item}} dest=/home/{{remote_user}}/.fonts/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
-#  with_fileglob:
-#    - fonts/*
-#
-#- name: Set permissions for fonts
-#  file: path=/home/{{remote_user}}/.fonts recurse='yes' owner={{remote_user}} group={{remote_user}} mode='u=rwX'
-#
-#- name: Set permissions for config
-#  file: path=/home/{{remote_user}}/.config recurse='yes' owner={{remote_user}} group={{remote_user}} mode='u=rwX'
-#
-#- name: Ensure background image
-#  copy: src=wallpapers/girl_face_explosion.jpg dest=/usr/share/backgrounds/girl_face_explosion.jpg  owner=root  group=root mode='a=r'
-#
-#- name: Set permissions
-#  file: path=/usr/share/backgrounds/girl_face_explosion.jpg owner={{remote_user}} group={{remote_user}} mode='u=rw'
+- name: Ensure wallpapers (for betterlockscren) folder exists
+  file:
+    path: "{{i3lock_cache_folder}}"
+    state: directory
+    mode: 0755
+
+- name: Ensure wallpapers (for betterlockscren) folder exists
+  file:
+    path: "{{i3lock_cache_folder_res}}"
+    state: directory
+    mode: 0755
+
+- name: Create a current symbolic link (for betterlockscren)
+  file:
+    src: "{{i3lock_cache_folder_res}}"
+    dest: "{{i3lock_cache_folder}}/current"
+    owner: "{{remote_user}}"
+    group: "{{remote_user}}"
+    state: link
+
+- name: Copy all wallpapers 
+  copy: src={{item}} dest=/home/{{remote_user}}/.config/wallpapers/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
+  with_fileglob:
+    - wallpapers/*
+
+- name: Copy all wallpapers resized (used by betterlockscren)
+  copy: src={{item}} dest=/home/{{remote_user}}/.cache/i3lock/current/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
+  with_fileglob:
+    - wallpapers_resized/*
