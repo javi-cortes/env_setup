@@ -124,6 +124,12 @@
     - betterlockscreen/*
   become: true
 
+- name: Make betterlockscreen executable by {{remote_user}}
+  file:
+    path: /usr/local/bin/betterlockscreen
+    mode: a+x
+  become: true
+
 - name: Install i3 utility-scripts autolock 
   copy: src={{item}} dest=/home/{{remote_user}}/.config/i3/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
   with_fileglob:

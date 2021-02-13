@@ -6,7 +6,7 @@
       remote_user: vagrant
       action: install
     roles:
-      #- i3-gaps
+      - i3-gaps
       #- utilities
       #- system-settings
       ## -- Apps --
@@ -24,20 +24,10 @@
       #- zoom
       #- silversearcher-ag
       #- pulseaudio
-      - themes
+      #- themes
 
 # TODO
 # ssh configs
 
 #TODO:
 #    https://stackoverflow.com/questions/29392369/ansible-ssh-private-key-in-source-control
-#
-#    get wallpapers this size atleast:
-#      dimensions:    7280x1440 pixels (1921x380 millimeters)
-#
-#
-#    LIGHTDM:
-#        https://github.com/nick92/Enso-OS/tree/master/greeter
-#        login page
-#    https://www.reddit.com/r/unixporn/comments/cgsang/i3gaps_spent_hours_configuring_polybar/
-#    i3 rice
