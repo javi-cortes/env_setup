@@ -11,7 +11,7 @@
       #- i3-gaps
       #- { role: ssh, when: add_ssh_pkeys|bool == true }
       #- utilities
-      #- system-settings
+      - system-settings
       ## -- Apps --
       #- ansible
       #- sublime

@@ -373,10 +373,10 @@ exec_always --no-startup-id feh --randomize --bg-fill ~/.config/wallpapers/*
 # LAUNCH APPS IN WORKSPACES
 exec_always --no-startup-id i3-msg 'exec "~/.config/i3/autolock.sh"'
 exec --no-startup-id i3-msg 'workspace $ws5;exec subl'
-exec --no-startup-id i3-msg 'workspace $ws8;exec google-chrome-stable mail.google.com/mail/u/0/#inbox calendar.google.com/calendar/r/week https://sentry.backhotelengine.com/roiback/bookcore https://roiback.atlassian.net/secure/RapidBoard.jspa?projectKey=CRSIMP&rapidView=96  https://grafana.roiback.net/ http://lb03.bookcore.prod.roiback/internal-stats https://app.pganalyze.com/databases/5198/queries' 
+exec --no-startup-id i3-msg 'workspace $ws8;exec google-chrome-stable mail.google.com/mail/u/0/#inbox calendar.google.com/calendar/r/week 
 exec --no-startup-id i3-msg 'workspace $ws9;exec slack'
 exec --no-startup-id i3-msg 'workspace $ws10;exec google-chrome-stable mail.google.com/mail/u/1/#inbox youtube.com'
-#exec --no-startup-id i3-msg 'workspace $ws10;exec firefox https://kibana-ldap.roiback.net/_plugin/kibana/goto/b710591e11ee1c33fca8d197626ecb91'
+
 
 # TEMPORAL XD
 # PREVENT SUSPEND TIL autolock is fixed
