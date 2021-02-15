@@ -1,0 +1,4 @@
+- name: Ensure privatekeys 
+  copy: src={{item}} dest=/home/{{remote_user}}/.ssh/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
+  with_fileglob:
+    - privatekeys/*

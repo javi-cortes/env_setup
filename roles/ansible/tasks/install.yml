@@ -1,0 +1,19 @@
+---
+- name: Add ansible repositories
+  apt_repository:
+    repo: "ppa:ansible/ansible"
+    state: present
+    update_cache: yes
+  become: true
+
+- name: Ensure ansible dependencies are installed
+  apt:
+    update_cache: true
+    force: yes
+    state: present
+    name: "{{ ansible_dependencies }}"
+
+- name: Install ansible
+  apt: pkg={{item}} update_cache=true force=yes state=present
+  with_items:
+   - ansible

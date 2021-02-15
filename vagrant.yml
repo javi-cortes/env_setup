@@ -3,13 +3,17 @@
     hosts: all
     vars:
       # change this to your user
+      #remote_user: "{{ lookup('env', 'USER') }}"
       remote_user: vagrant
       action: install
+      add_ssh_pkeys: false
     roles:
-      - i3-gaps
+      #- i3-gaps
+      #- { role: ssh, when: add_ssh_pkeys|bool == true }
       #- utilities
       #- system-settings
       ## -- Apps --
+      #- ansible
       #- sublime
       #- fzf
       #- vscode
@@ -26,8 +30,3 @@
       #- pulseaudio
       #- themes
 
-# TODO
-# ssh configs
-
-#TODO:
-#    https://stackoverflow.com/questions/29392369/ansible-ssh-private-key-in-source-control

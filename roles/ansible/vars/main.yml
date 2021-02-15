@@ -1,0 +1,4 @@
+---
+
+ansible_dependencies:
+  - software-properties-common

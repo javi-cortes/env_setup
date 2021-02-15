@@ -1,4 +1,5 @@
 #!/bin/bash
+# if you wanna ln stuff to dropbox or any folder
 
 FOLDER=${1:-"~/Dropbox/meta"}
 echo "ln'ing all $FOLDER dotfiles"
