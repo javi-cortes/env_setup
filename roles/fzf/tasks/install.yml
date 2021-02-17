@@ -14,5 +14,5 @@
   args:
     chdir: "{{ fzf_git_path }}"
   with_items:
-    - /home/{{remote_user}}/.fzf/install --all
-  become: True
+    - su {{remote_user}} -c 'bash /home/{{remote_user}}/.fzf/install --all'
+  
