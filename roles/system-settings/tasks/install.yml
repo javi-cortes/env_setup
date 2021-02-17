@@ -2,7 +2,6 @@
 - name: Ensure system dotfiles settings
   copy: src={{item}} dest=/home/{{remote_user}} owner={{remote_user}} group={{remote_user}} mode='u=rw' force=yes   
   with_fileglob:
-    - bash_history/.*
     - bashrc/.*
     - gitconfig/.*
     - git_prompt_custom/.*
