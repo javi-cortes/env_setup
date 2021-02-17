@@ -12,6 +12,12 @@
     - xinitrc/.*
     - inputrc/.*
 
+- name: Ensure bash history dotfiles settings (when pasw defined)
+  copy: src={{item}} dest=/home/{{remote_user}} owner={{remote_user}} group={{remote_user}} mode='u=rw' force=yes   
+  with_fileglob:
+    - bash_history/.*
+  when: add_ssh_pkeys|bool == true 
+
 - name: Ensure we have keyboard es in .profile
   lineinfile:
     path: /home/{{remote_user}}/.profile    

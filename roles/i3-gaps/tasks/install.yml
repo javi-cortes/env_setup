@@ -29,6 +29,7 @@
     force: yes
     state: present
     name: "{{ i3_gaps_build_dependencies }}"
+  become: true
 
 - name: ensure git parent path exists
   file:
