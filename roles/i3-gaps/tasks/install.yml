@@ -84,6 +84,7 @@
   copy: src={{item}} dest=/usr/share/xsessions/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
   with_fileglob:
     - autostart/*
+  become: true
 
 - name: Ensure i3 config
   copy: src={{item}} dest=/home/{{remote_user}}/.config/i3/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
