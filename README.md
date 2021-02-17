@@ -58,6 +58,8 @@ vault_password_file=/path/to/your/vault_secret.sh
 #!/bin/bash
 echo yourpassword
 
+chmod +x vault_secret.sh
+
 # Run encrypt 
 
 ansible-vault encrypt path/to/my/pkeys/id_rsa*
