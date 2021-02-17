@@ -6,3 +6,4 @@
 - name: Install google chrome 
   apt:
     deb: /tmp/google-installer.deb
+  become: true

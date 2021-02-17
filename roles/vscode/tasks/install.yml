@@ -5,6 +5,7 @@
    - software-properties-common
    - apt-transport-https
    - wget
+  become: true
 
 - name: Install key for VSCode
   apt_key:
@@ -23,4 +24,5 @@
   apt: pkg={{item}} update_cache=true force=yes state=present
   with_items:
    - code
+  become: true
 

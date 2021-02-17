@@ -2,3 +2,4 @@
   apt: pkg={{item}} update_cache=true force=yes state=present
   with_items:
    - vlc
+  become: true

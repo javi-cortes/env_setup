@@ -5,6 +5,7 @@
    - compton
    - rofi
    - terminator 
+  become: true
 
 - name: Ensure rofi config files
   copy: src={{item}} dest=/home/{{remote_user}}/.config/rofi/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
@@ -59,3 +60,4 @@
   apt: pkg={{item}} update_cache=true force=yes state=present
   with_items:
    - fonts-noto-color-emoji
+  become: true

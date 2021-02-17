@@ -2,7 +2,7 @@
 - name: Install required system packages
   apt: name={{ item }} state=latest update_cache=yes    
   loop: [ 'apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common', 'python3-pip', 'virtualenv', 'python3-setuptools']
-
+  become: true
 
 - name: Ensure docker repo is present
   apt_key:
@@ -21,6 +21,7 @@
   apt: pkg={{item}} update_cache=true force=yes state=present
   with_items:
    - docker-ce
+  become: true
 
 - name: ensure user is added to docker group
   user:

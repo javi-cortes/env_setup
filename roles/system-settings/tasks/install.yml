@@ -27,6 +27,7 @@
   apt: pkg={{item}} update_cache=true force=yes state=present
   with_items:
    - dsh
+  become: true
 
 - name: Create dsh directory if it does not exist
   file:

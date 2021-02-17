@@ -3,3 +3,4 @@
   apt: pkg={{item}} update_cache=true force=yes state=present
   with_items:
    - docker-compose
+  become: true

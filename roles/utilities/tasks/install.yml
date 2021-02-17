@@ -5,3 +5,4 @@
     force: yes
     state: present
     name: "{{ utilities_dependencies }}"
+  become: true

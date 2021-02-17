@@ -16,6 +16,7 @@
   apt: pkg={{item}} update_cache=true force=yes state=present
   with_items:
    - sublime-text
+  become: true
 
 - name: ensure sublime package directory exists
   file:
