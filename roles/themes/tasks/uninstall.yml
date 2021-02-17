@@ -33,3 +33,8 @@
 
 - name: Remove lightdm user background
   lineinfile: dest=/etc/lightdm/lightdm-gtk-greeter.conf regexp="^user-background.*" state=absent
+
+- name: Install fonts
+  apt: pkg={{item}} update_cache=true force=yes state=absent
+  with_items:
+   - fonts-noto-color-emoji

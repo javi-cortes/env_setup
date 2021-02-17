@@ -1,19 +1,4 @@
----
-- name: Remove ansible repositories
-  apt_repository:
-    repo: "ppa:ansible/ansible"
+- name: Install ansible python package
+  pip:
+    name: ansible
     state: absent
-    update_cache: yes
-  become: true
-
-- name: Ensure ansible dependencies are remove
-  apt:
-    update_cache: true
-    force: yes
-    state: absent
-    name: "{{ ansible_dependencies }}"
-
-- name: Install ansible
-  apt: pkg={{item}} update_cache=true force=yes state=absent
-  with_items:
-   - ansible

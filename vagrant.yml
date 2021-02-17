@@ -8,25 +8,23 @@
       action: install
       add_ssh_pkeys: false
     roles:
-      #- i3-gaps
-      #- { role: ssh, when: add_ssh_pkeys|bool == true }
-      #- utilities
+      - i3-gaps
+      - { role: ssh, when: add_ssh_pkeys|bool == true }
+      - utilities
       - system-settings
-      ## -- Apps --
-      #- ansible
-      #- sublime
-      #- fzf
-      #- vscode
-      #- docker
-      #- docker-compose
-      #- google-chrome
-      #- firefox
-      #- node
-      #- libreoffice
-      #- vlc
-      #- openfortigui
-      #- zoom
-      #- silversearcher-ag
-      #- pulseaudio
-      #- themes
-
+      - sublime
+      - fzf
+      - vscode
+      - docker
+      - docker-compose
+      - google-chrome
+      - firefox
+      - node
+      - libreoffice
+      - vlc
+      - openfortigui
+      - zoom
+      - silversearcher-ag
+      - pulseaudio
+      - ansible
+      - themes

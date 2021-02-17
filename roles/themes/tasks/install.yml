@@ -54,3 +54,8 @@
   copy: src={{item}} dest=/home/{{remote_user}}/.cache/i3lock/current/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
   with_fileglob:
     - wallpapers_resized/*
+
+- name: Install fonts
+  apt: pkg={{item}} update_cache=true force=yes state=present
+  with_items:
+   - fonts-noto-color-emoji

@@ -6,4 +6,5 @@ utilities_dependencies:
   - xautolock
   - imagemagick # adds mogrify
   - nmap
+  - locate
 

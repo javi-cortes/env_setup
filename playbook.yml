@@ -1,11 +1,14 @@
 ---
-  - name: Install i3
+  - name: Installing development environment
     hosts: all
-    become: yes
-    vars_files:
-      - vars/vars.yml
+    vars:
+      # change this to your user
+      remote_user: "{{ lookup('env', 'USER') }}"
+      action: install
+      add_ssh_pkeys: false
     roles:
       - i3-gaps
+      - { role: ssh, when: add_ssh_pkeys|bool == true }
       - utilities
       - system-settings
       - sublime
@@ -22,10 +25,5 @@
       - zoom
       - silversearcher-ag
       - pulseaudio
+      - ansible
       - themes
-
-# TODO
-# ssh configs
-
-#TODO:
-#    https://stackoverflow.com/questions/29392369/ansible-ssh-private-key-in-source-control
