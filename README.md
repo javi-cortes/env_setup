@@ -26,6 +26,8 @@ This Ansible role installs the following components:
   * [zoom]
   * [silversearcher-ag](https://github.com/ggreer/the_silver_searcher)
   * [pulseaudio]
+  * [ansible](https://www.ansible.com/)
+  * [pycharm](https://www.jetbrains.com/pycharm/)
   * [themes] Random wallpapers and custom betterlockscreen(https://github.com/pavanjadhaw/betterlockscreen) modified
 
 
