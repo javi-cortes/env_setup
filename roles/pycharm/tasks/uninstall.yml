@@ -1,0 +1,7 @@
+---
+- name: Install pycharm with snap
+  community.general.snap:
+    name:
+      - pycharm-professional 
+    classic: yes
+    state: absent

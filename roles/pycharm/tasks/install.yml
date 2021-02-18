@@ -1,0 +1,13 @@
+---
+- name: Install pycharm with snap
+  snap:
+    name:
+      - pycharm-professional 
+    classic: yes
+    state: present
+
+- name: Move settings.Ensure autostart files
+  copy: src={{item}} dest=/home/{{remote_user}}/.config/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
+  with_fileglob:
+    - settings/*
+     

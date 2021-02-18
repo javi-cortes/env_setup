@@ -27,4 +27,5 @@
       - silversearcher-ag
       - pulseaudio
       - ansible
+      - pycharm
       - themes
