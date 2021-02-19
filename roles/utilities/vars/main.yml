@@ -7,4 +7,5 @@ utilities_dependencies:
   - imagemagick # adds mogrify
   - nmap
   - locate
+  - vim
 
