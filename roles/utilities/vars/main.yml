@@ -11,5 +11,6 @@ utilities_dependencies:
   - virtualbox
   - htop
   - pavucontrol
+  - openvpn
 
 
