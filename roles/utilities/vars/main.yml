@@ -8,4 +8,7 @@ utilities_dependencies:
   - nmap
   - locate
   - vim
+  - virtualbox
+  - htop
+
 

@@ -8,6 +8,7 @@
     recursive: True
     update: True
     depth: 1
+  become: true
 
 - name: fzf - install 
   command: "{{ item }}"
