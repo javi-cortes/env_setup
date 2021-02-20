@@ -10,5 +10,6 @@ utilities_dependencies:
   - vim
   - virtualbox
   - htop
+  - pavucontrol
 
 

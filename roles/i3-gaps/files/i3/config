@@ -196,6 +196,8 @@ workspace $ws9 output DP-1-1
 
 # xrandr command
 #exec --no-startup-id xrandr --output eDP-1 --pos 0x0 --primary --output HDMI-1 --pos 1920x0 --output DP-1-2 --pos 3840x0
+exec --no-startup-id xrandr  --output eDP-1 --mode 1920x1080
+exec --no-startup-id xrandr  --output DP-2-3 --mode 3440x1440 --primary
 
 
 # switch to workspace
@@ -317,10 +319,18 @@ hide_edge_borders none
 smart_borders on
 
 
+# sometimes this config, or sometimes the one below
+#bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
+#bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1- unmute"
+
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
-bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1- unmute"
-bindsym XF86AudioMute exec "amixer -D pulse set Master 1+ toggle"
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
+
+
+#bindsym XF86AudioMute exec "amixer -D pulse set Master 1+ toggle"
+
 # check cards available and its number
 #     cat /proc/asound/cards
 # check card and set by default the on u need
