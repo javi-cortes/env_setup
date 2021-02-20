@@ -1,0 +1,9 @@
+- name: Download slack  .deb installer
+  get_url:
+    url: https://downloads.slack-edge.com/linux_releases/slack-desktop-4.0.2-amd64.deb
+    dest: /tmp/slack-installer.deb
+    
+- name: Install slack  
+  apt:
+    deb: /tmp/slack-installer.deb
+  become: true

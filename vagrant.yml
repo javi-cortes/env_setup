@@ -28,4 +28,5 @@
       - pulseaudio
       - ansible
       - pycharm
+      - slack
       - themes
