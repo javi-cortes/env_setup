@@ -1,0 +1,22 @@
+- name: Create a symbolic link to all config files to keep up in the repo
+  file:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: "{{ remote_user }}"
+    group: "{{ remote_user }}"
+    state: link
+    force: yes
+  with_items:
+    - { src: "{{playbook_dir}}/roles/i3-gaps/files/i3/config", dest: "/home/{{remote_user}}/.config/i3/config" }
+    - { src: "{{playbook_dir}}/roles/i3-gaps/files/i3status/config", dest: "/home/{{remote_user}}/.config/i3status/config" }
+    - { src: "{{playbook_dir}}/roles/system-settings/files/vimrc/.vimrc", dest: "/home/{{remote_user}}/.vimrc" }
+    - { src: "{{playbook_dir}}/roles/system-settings/files/xinitrc/.xinitrc", dest: "/home/{{remote_user}}/.xinitrc" }
+    - { src: "{{playbook_dir}}/roles/system-settings/files/git_prompt_custom/.git_prompt_custom", dest: "/home/{{remote_user}}/.git_prompt_custom" }
+    - { src: "{{playbook_dir}}/roles/system-settings/files/javi/.javi-ascii", dest: "/home/{{remote_user}}/.javi-ascii" }
+    - { src: "{{playbook_dir}}/roles/system-settings/files/gitconfig/.gitconfig", dest: "/home/{{remote_user}}/.gitconfig" }
+
+
+
+
+
+

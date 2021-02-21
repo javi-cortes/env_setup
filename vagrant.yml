@@ -7,6 +7,7 @@
       remote_user: vagrant
       action: install
       add_ssh_pkeys: false
+      sym_links: false
     roles:
       - i3-gaps
       - { role: ssh, when: add_ssh_pkeys|bool == true }
@@ -30,3 +31,4 @@
       - pycharm
       - slack
       - themes
+      - { role: symbolic-link, when: sym_links|bool == true }

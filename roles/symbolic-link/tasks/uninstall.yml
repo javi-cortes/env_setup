@@ -1,0 +1,13 @@
+- name: Create a symbolic link to all config files to keep up in the repo
+  file:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: {{remote_user}}
+    group: {{remote_user}}
+    state: absent
+  loop:
+    - { src: "roles/i3-gaps/files/i3/config", dest: "/tmp/shitty.confi" }
+
+
+
+
