@@ -231,4 +231,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # sometimes PS1 and git functions dont get loaded in the shell
-source /user/lib/git-core/git-sh-prompt
+source /usr/lib/git-core/git-sh-prompt
