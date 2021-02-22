@@ -1,7 +1,2 @@
 ---
-
 keepass_apt_repo: "ppa:jtaylor/keepass"
-
-# ID: curl https://download.keepass.com/linux/debian/gpg | gpg --list-packets
-keepass_apt_key: ppa:jtaylor/keepass
-
