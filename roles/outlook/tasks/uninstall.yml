@@ -1,0 +1,8 @@
+---
+- name: Install outlook prospect-mail with snap
+  snap:
+    name:
+      - prospect-mail
+    classic: yes
+    state: absent
+  become: true

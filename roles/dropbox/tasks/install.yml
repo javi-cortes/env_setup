@@ -1,0 +1,42 @@
+---
+# Following this guide: https://www.how2shout.com/linux/install-dropbox-gui-or-headless-on-ubuntu-20-04-lts/
+- name: Download dropbox tar
+  get_url:
+    url: https://www.dropbox.com/download?plat=lnx.x86_64
+    dest: /tmp/dropbox.tar.gz
+
+- name: Open tar 
+  unarchive:
+    src: /tmp/dropbox.tar.gz
+    dest: /home/{{remote_user}}/
+    remote_src: yes
+
+- name: Warn the user about linking dropbox account
+  debug:
+    msg: You've to manually hit the installer in order to link it with your account
+  when: ansible_default_ipv4.gateway is defined
+#- name: Execute dropbox installer
+#  command: "{{ item }}"  
+#  with_items:
+#    - /home/{{remote_user}}/.dropbox-dist/dropboxd
+
+# Create dropbox service (daemon autostart)
+- name: Download dropbox service
+  get_url:
+    url: https://raw.githubusercontent.com/joeroback/dropbox/master/dropbox%40.service
+    dest: /etc/systemd/system/dropbox@.service
+  become: true
+
+- name: Enable dropbox service and ensure it is not masked
+  ansible.builtin.systemd:
+    name: dropbox@{{remote_user}}
+    enabled: yes
+  become: true
+
+- name: Make sure dropbox service is running
+  ansible.builtin.systemd:
+    name: dropbox@{{remote_user}}
+    state: started
+  become: true
+
+

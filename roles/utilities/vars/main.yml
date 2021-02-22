@@ -12,6 +12,6 @@ utilities_dependencies:
   - htop
   - pavucontrol
   - openvpn
-  - ipython
+  #- ipython
 
 

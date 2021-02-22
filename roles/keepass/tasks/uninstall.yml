@@ -1,0 +1,13 @@
+---
+- name: Remove keepass repositories
+  apt_repository:
+    repo: "{{ keepass_apt_repo }}"
+    state: absent
+    update_cache: yes
+  become: true
+
+- name: Uninstall keepass (ensure downloading DB from dropbox)
+  apt: pkg={{item}} update_cache=true force=yes state=absent
+  with_items:
+   - keepass2
+  become: true
