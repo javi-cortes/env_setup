@@ -36,7 +36,7 @@ battery all {
 }
 
 disk "/" {
-        format = "💾%free/%total"
+        format = "💾%used/%total"
 }
 
 cpu_usage {
