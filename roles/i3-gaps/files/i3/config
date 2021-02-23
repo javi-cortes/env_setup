@@ -294,6 +294,7 @@ exec_always --no-startup-id pkill compton && sleep 1 && compton -b --config ~/.c
 bar {
         status_command i3status
         position top
+        tray_output primary
 }
 
 # GAPS 
