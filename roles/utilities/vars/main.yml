@@ -12,6 +12,8 @@ utilities_dependencies:
   - htop
   - pavucontrol
   - openvpn
+  - net-tools
+  - keychain
   #- ipython
 
 

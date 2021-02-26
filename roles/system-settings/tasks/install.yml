@@ -57,8 +57,9 @@
     path: /home/{{remote_user}}/.javirc
     state: touch
 
-- name: Write eval ssh to javirc
+- name: Write evals ssh to javirc
   command: "{{ item }}"  
   with_items:
     - echo 'eval $(keychain --eval --agents ssh id_rsa)' >> /home/{{remote_user}}/.javirc
+    - echo 'eval $(keychain --eval --agents ssh id_rsa_javigithub)' >> /home/{{remote_user}}/.javirc
   become: true
