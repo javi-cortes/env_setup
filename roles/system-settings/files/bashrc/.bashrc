@@ -97,7 +97,7 @@ alias ....='cd ../../../../'
 alias .....='cd ../../../../' 
 alias .4='cd ../../../../' 
 alias .5='cd ../../../../..'
-alias b='cd ~/roi/bookcore'
+alias b='cd ~/blueliv'
 alias bm='b && m shell_plus'
 alias bf='b && fastmserve'
 
@@ -111,6 +111,10 @@ alias fastdebugmserve='ROIBACK_OPTS=noadmin m serve --sin-grunt --workers 1'
 alias fastnodebugmserve='ROIBACK_OPTS=noadmin,nodebug m serve --sin-grunt'
 alias fastprofileserve='ROIBACK_OPTS=noadmin,nodebug m profile serve --sin-grunt --workers 1'
 alias fastredis='ROIBACK_OPTS=cache,redis m serve --sin-grunt'
+
+# docker compose
+alias dc="docker-compose"
+alias d="docker"
 
 # alias proyectos update
 alias st_bookcore_client2013='dsh -c -M -g libs  -- '\''git -C /var/roiback/libs/bookcore_client2013/bookcore_client status -s'\'''
@@ -232,3 +236,11 @@ export NVM_DIR="$HOME/.nvm"
 
 # sometimes PS1 and git functions dont get loaded in the shell
 source /usr/lib/git-core/git-sh-prompt
+
+#export PATH="$HOME/.pyenv/bin:$PATH"
+#eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
+
+# Repo's login credentials (nexus, dockers...)
+source ~/.blueliv-env-creds
+

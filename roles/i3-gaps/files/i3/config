@@ -182,17 +182,21 @@ exec_always --no-startup-id autorandr --change
 workspace $ws10 output eDP-1
 
 # LEFT MONITOR
-workspace $ws1 output HDMI-1
-workspace $ws2 output HDMI-1
-workspace $ws3 output HDMI-1
-workspace $ws4 output HDMI-1
+workspace $ws10 output eDP-1
+
+# CENTER MONITOR
+workspace $ws1 output DP-2-3
+workspace $ws2 output DP-2-3
+workspace $ws3 output DP-2-3
+workspace $ws4 output DP-2-3
 
 # RIGHT MONITOR
-workspace $ws5 output DP-1-1
-workspace $ws6 output DP-1-1
-workspace $ws7 output DP-1-1
-workspace $ws8 output DP-1-1
-workspace $ws9 output DP-1-1
+workspace $ws5 output DP-1
+workspace $ws6 output DP-1
+workspace $ws7 output DP-1
+workspace $ws8 output DP-1
+workspace $ws9 output DP-1
+
 
 # xrandr command
 #exec --no-startup-id xrandr --output eDP-1 --pos 0x0 --primary --output HDMI-1 --pos 1920x0 --output DP-1-2 --pos 3840x0
@@ -287,7 +291,7 @@ mode "$mode_power" {
 }
 
 # windows composer
-exec_always --no-startup-id pkill compton && sleep 1 && compton -b --config ~/.compton.conf
+exec_always --no-startup-id pkill compton && sleep 2 && compton -b --config ~/.compton.conf
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -382,13 +386,15 @@ bindsym Control+Print exec gnome-screenshot -i
 # Background wallpaper
 exec_always --no-startup-id feh --randomize --bg-fill ~/.config/wallpapers/*
 
+# run nm-applet
+exec_always --no-startup-id nm-applet
+
 # AUTOSTART
 # LAUNCH APPS IN WORKSPACES
 exec_always --no-startup-id i3-msg 'exec "~/.config/i3/autolock.sh"'
 exec --no-startup-id i3-msg 'workspace $ws1;exec prospect-mail'
-exec --no-startup-id i3-msg 'workspace $ws1;exec google-chrome-stable blueliv.woffu.com/beta/dashboard/personal https://blueliv.atlassian.net/secure/BrowseProjects.jspa'
+exec --no-startup-id i3-msg 'workspace $ws1;exec google-chrome-stable blueliv.woffu.com/beta/dashboard/personal'
 exec --no-startup-id i3-msg 'workspace $ws5;exec subl'
-exec --no-startup-id i3-msg 'workspace $ws5;exec keepass2'
 exec --no-startup-id i3-msg 'workspace $ws9;exec slack'
 exec --no-startup-id i3-msg 'workspace $ws10;exec google-chrome-stable mail.google.com/mail/u/0/#inbox calendar.google.com/calendar/r/week 
 

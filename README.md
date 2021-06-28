@@ -84,6 +84,9 @@ vagrant provision
 
 
 ## TODO
+  * add python3.9 utils: sudo apt-get install python3.9-distutils --reinstall
+  * install pipenv
+  * ngrok
   * Polybar
   * Lightdm greeter:https://github.com/nick92/Enso-OS/tree/master/greeter
   * https://github.com/AdguardTeam/AdGuardHome#getting-started
@@ -91,4 +94,7 @@ vagrant provision
   * change dns server 
   ** https://www.unixmen.com/how-to-find-best-and-fast-dns-servers-to-optimize-your-internet-speed/ 
   ** https://www.tecmint.com/set-permanent-dns-nameservers-in-ubuntu-debian/
+  * install pyenv: https://github.com/pyenv/pyenv-installer
+     sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl git
+
 
