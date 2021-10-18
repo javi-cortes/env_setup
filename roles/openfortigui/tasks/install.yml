@@ -23,7 +23,7 @@
   become: true
 
 - name: Install openfortigui
-  apt: pkg={{item}} update_cache=true force=yes state=present
+  apt: pkg={{item}} update_cache=false force=yes state=present
   with_items:
    - openfortigui
   become: true

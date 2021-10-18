@@ -27,9 +27,9 @@
       - pulseaudio
       - ansible
       - pycharm
-      - slack  # gvfs bin dependency
+      - slack
       - outlook
-      - keepass  # release file
+      - keepass
       - dropbox
       - themes
       - { role: symbolic-link, when: sym_links|bool == true }

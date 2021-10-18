@@ -1,5 +1,8 @@
-- name: Uninstall chrome
-  apt: pkg={{item}} update_cache=true force=yes state=absent
-  with_items:
-   - google-chrome
-
+---
+- name: Install slack with snap
+  snap:
+    name:
+      - slack
+    classic: yes
+    state: absent
+  become: true
