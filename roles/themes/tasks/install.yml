@@ -13,7 +13,9 @@
     - rofi/*
 
 - name: Ensure compton config
-  copy: src=compton/compton.conf dest=/home/{{remote_user}}/.compton.conf owner={{remote_user}} group={{remote_user}} mode='u=rw'
+  copy: src={{item}} dest=/home/{{remote_user}}/config/compton/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
+  with_fileglob:
+    - compton/*
 
 - name: Ensure terminator config files
   copy: src={{item}} dest=/home/{{remote_user}}/.config/terminator/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
