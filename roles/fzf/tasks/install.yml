@@ -11,9 +11,5 @@
   become: true
 
 - name: fzf - install 
-  command: "{{ item }}"
-  args:
-    chdir: "{{ fzf_git_path }}"
-  with_items:
-    - su {{remote_user}} -c 'bash /home/{{remote_user}}/.fzf/install --all'
-  become: true
+  ansible.builtin.script:
+    cmd: /home/{{remote_user}}/.fzf/install --all

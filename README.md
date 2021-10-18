@@ -36,13 +36,13 @@ This Ansible role installs the following components:
 Clone repo and run the playbook:
 
 ```
-ansible-playbook playbook.yml -i hosts -e action=install
+ansible-playbook playbook.yml -i hosts -e action=install -e sym_links=true -K
 ```
 
 This repo contains ssh private keys encrypted with ansible-vault. By default are disabled, if you want to add them or create your own set add_ssh_pkeys to true and encrypt your own.
 
 ```
-ansible-playbook playbook.yml -i hosts -e action=install add_ssh_pkeys=true
+ansible-playbook playbook.yml -i hosts -e action=install -e add_ssh_pkeys=true -K
 ```
 
 ## Encrypting pkeys example:

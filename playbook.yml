@@ -21,15 +21,15 @@
       - node
       - libreoffice
       - vlc
-      - openfortigui
+      - openfortigui  # fix release date file
       - zoom
       - silversearcher-ag
       - pulseaudio
       - ansible
       - pycharm
-      - slack
+      - slack  # gvfs bin dependency
       - outlook
-      - keepass
+      - keepass  # release file
       - dropbox
       - themes
       - { role: symbolic-link, when: sym_links|bool == true }
