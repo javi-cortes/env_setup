@@ -302,7 +302,7 @@ bar {
 for_window [class="^.*"] border pixel 2
 # PYCHARM FOCUS ISSUE
 for_window [class="^jetbrains-.+"][window_type=dialog] focus
-# PYCHARM MENUo
+# PYCHARM MENU
 for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
 
 

@@ -11,6 +11,7 @@ i3_gaps_build_dependencies:
   - automake
   - curl
   - gcc
+  - i3lock
   - git
   - i3status
   - libcairo2-dev
