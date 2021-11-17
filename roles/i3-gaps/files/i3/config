@@ -195,11 +195,7 @@ workspace $ws8 output DP-2-3
 workspace $ws9 output DP-2-3
 
 # xrandr command
-#exec --no-startup-id xrandr --output eDP-1 --pos 0x0 --primary --output HDMI-1 --pos 1920x0 --output DP-1-2 --pos 3840x0
-exec --no-startup-id xrandr  --output eDP-1 --mode 1920x1080
-exec --no-startup-id xrandr  --output DP-2-1 --mode 3440x1440 --primary
-exec --no-startup-id xrandr  --output DP-2-3 --mode 1920x1080
-
+exec --no-startup-id xrandr --output DP-3-1 --primary --output DP-3-2 --left-of DP-3-1 --output eDP-1 --right-of DP-3-1
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
