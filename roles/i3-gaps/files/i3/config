@@ -345,7 +345,7 @@ bindsym XF86AudioMute exec "amixer -D pulse set Master 1+ toggle"
 # Reload pulseaudio
 #    pulseaudio -k
 
-# Sreen brightness controls
+# Screen brightness controls
 # Brightness monitor laptop
 bindsym XF86MonBrightnessUp exec ~/.config/i3/brightness.sh + eDP-1 # increase screen brightness
 bindsym XF86MonBrightnessDown exec ~/.config/i3/brightness.sh - eDP-1 # decrease screen brightness
