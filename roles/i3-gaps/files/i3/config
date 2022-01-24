@@ -178,24 +178,24 @@ set $ws10 "10"
 exec_always --no-startup-id autorandr --change
 
 # OPEN workspaces in monitors by default
-# LEFT MONITOR
+# RIGHT MONITOR
 workspace $ws10 output eDP-1
 
 # CENTER MONITOR
-workspace $ws1 output DP-3-1
-workspace $ws2 output DP-3-1
-workspace $ws3 output DP-3-1
-workspace $ws4 output DP-3-1
+workspace $ws1 output DP-2-1
+workspace $ws2 output DP-2-1
+workspace $ws3 output DP-2-1
+workspace $ws4 output DP-2-1
 
-# RIGHT MONITOR
-workspace $ws5 output DP-3-2
-workspace $ws6 output DP-3-2
-workspace $ws7 output DP-3-2
-workspace $ws8 output DP-3-2
-workspace $ws9 output DP-3-2
+# LEFT MONITOR
+workspace $ws5 output DP-2-2
+workspace $ws6 output DP-2-2
+workspace $ws7 output DP-2-2
+workspace $ws8 output DP-2-2
+workspace $ws9 output DP-2-2
 
 # xrandr command
-exec --no-startup-id xrandr --output DP-3-1 --primary --output DP-3-2 --left-of DP-3-1 --output eDP-1 --right-of DP-3-1
+exec --no-startup-id xrandr --output DP-2-1 --primary --output DP-2-2 --left-of DP-2-1 --output eDP-1 --right-of DP-2-1
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
