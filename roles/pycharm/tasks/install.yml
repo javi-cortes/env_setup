@@ -4,6 +4,7 @@
     name:
       - pycharm-professional 
     classic: yes
+    channel: 2021.2/stable  # higher versions prob wont support ide eval reset ._.
     state: present
   become: true
 
