@@ -84,11 +84,13 @@ vagrant provision
 
 
 ## TODO
+  * Install wrk
+  * upgrade docker compose version: https://stackoverflow.com/a/49839172
   * Polybar
   * Lightdm greeter:https://github.com/nick92/Enso-OS/tree/master/greeter
   * https://github.com/AdguardTeam/AdGuardHome#getting-started
   * Remove login box rendered on betterlockscreen
-  * change dns server 
-  ** https://www.unixmen.com/how-to-find-best-and-fast-dns-servers-to-optimize-your-internet-speed/ 
+  * change dns server
+  ** https://www.unixmen.com/how-to-find-best-and-fast-dns-servers-to-optimize-your-internet-speed/
   ** https://www.tecmint.com/set-permanent-dns-nameservers-in-ubuntu-debian/
 
