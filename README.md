@@ -85,6 +85,7 @@ vagrant provision
 
 ## TODO
   * Install wrk
+  * Install aws
   * upgrade docker compose version: https://stackoverflow.com/a/49839172
   * Polybar
   * Lightdm greeter:https://github.com/nick92/Enso-OS/tree/master/greeter
