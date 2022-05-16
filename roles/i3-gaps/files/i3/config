@@ -182,20 +182,20 @@ exec_always --no-startup-id autorandr --change
 workspace $ws10 output eDP-1
 
 # CENTER MONITOR
-workspace $ws1 output DP-2-1
-workspace $ws2 output DP-2-1
-workspace $ws3 output DP-2-1
-workspace $ws4 output DP-2-1
+workspace $ws1 output DP-3-2
+workspace $ws2 output DP-3-2
+workspace $ws3 output DP-3-2
+workspace $ws4 output DP-3-2
 
 # LEFT MONITOR
-workspace $ws5 output DP-2-2
-workspace $ws6 output DP-2-2
-workspace $ws7 output DP-2-2
-workspace $ws8 output DP-2-2
-workspace $ws9 output DP-2-2
+workspace $ws5 output DP-3-1
+workspace $ws6 output DP-3-1
+workspace $ws7 output DP-3-1
+workspace $ws8 output DP-3-1
+workspace $ws9 output DP-3-1
 
 # xrandr command
-exec --no-startup-id xrandr --output DP-2-1 --primary --output DP-2-2 --left-of DP-2-1 --output eDP-1 --right-of DP-2-1
+exec --no-startup-id xrandr --output DP-3-2 --primary --output DP-3-1 --left-of DP-3-2 --output eDP-1 --right-of DP-3-2
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -385,10 +385,10 @@ exec_always --no-startup-id feh --randomize --bg-fill ~/.config/wallpapers/*
 # AUTOSTART
 # LAUNCH APPS IN WORKSPACES
 exec_always --no-startup-id i3-msg 'exec "~/.config/i3/autolock.sh"'
-exec --no-startup-id i3-msg 'workspace $ws5;exec subl'
+exec --no-startup-id i3-msg 'workspace $ws10;exec subl'
 #exec --no-startup-id i3-msg 'workspace $ws5;exec keepass2'
 #exec --no-startup-id i3-msg 'workspace $ws9;exec slack'
-exec --no-startup-id i3-msg 'workspace $ws10;exec google-chrome-stable mail.google.com/mail/u/0/#inbox calendar.google.com/calendar/r/week 
+exec --no-startup-id i3-msg 'workspace $ws5;exec google-chrome-stable mail.google.com/mail/u/0/#inbox calendar.google.com/calendar/r/week 
 
 
 # TEMPORAL XD
