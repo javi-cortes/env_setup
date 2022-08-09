@@ -1,4 +1,4 @@
-# Ansible development environment 
+# Ansible development environment
 
 Ansible playbook to install and configure my dev env on Ubuntu.
 
@@ -62,13 +62,13 @@ echo yourpassword
 
 chmod +x vault_secret.sh
 
-# Run encrypt 
+# Run encrypt
 
 ansible-vault encrypt path/to/my/pkeys/id_rsa*
 ```
 
 
-## Testing your playbook with Vagrant 
+## Testing your playbook with Vagrant
 
 To Ansible playbook can be tested with Vagrant:
 
@@ -85,7 +85,10 @@ vagrant provision
 
 ## TODO
   * Install wrk
+  * Install wine 
+  * Install all python versions
   * Install aws
+  * Install wormhole
   * upgrade docker compose version: https://stackoverflow.com/a/49839172
   * Polybar
   * kdiff3
