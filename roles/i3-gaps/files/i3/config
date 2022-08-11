@@ -284,7 +284,7 @@ mode "$mode_power" {
 }
 
 # windows composer
-exec_always --no-startup-id i3-msg 'exec "~/.config/compton/compton_init.sh"'
+# exec_always --no-startup-id i3-msg 'exec "~/.config/compton/compton_init.sh"'
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -324,8 +324,8 @@ smart_borders on
 # pactl list short  sinks # check the first number and choose that one as the sink
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 5 +1% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 5 -1% #decrease sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 4 +1% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 4 -1% #decrease sound volume
 #bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
 
 
@@ -376,8 +376,8 @@ exec i3-config-wizard:
 exec --no-startup-id xset r rate 250 100 #  delay interval
 
 # Screen Shots
-bindsym Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/'
-bindsym Control+Print exec gnome-screenshot -i
+bindsym Print exec flameshot gui
+# bindsym Control+Print exec gnome-screenshot -i
 
 # Background wallpaper
 exec_always --no-startup-id feh --randomize --bg-fill ~/.config/wallpapers/*
