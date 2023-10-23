@@ -14,6 +14,7 @@
     - { src: "{{playbook_dir}}/roles/system-settings/files/git_prompt_custom/.git_prompt_custom", dest: "/home/{{remote_user}}/.git_prompt_custom" }
     - { src: "{{playbook_dir}}/roles/system-settings/files/javi/.javi-ascii", dest: "/home/{{remote_user}}/.javi-ascii" }
     - { src: "{{playbook_dir}}/roles/system-settings/files/gitconfig/.gitconfig", dest: "/home/{{remote_user}}/.gitconfig" }
+    - { src: "{{playbook_dir}}/roles/system-settings/files/bashrc/.bashrc", dest: "/home/{{remote_user}}/.bashrc" }
 
 
 

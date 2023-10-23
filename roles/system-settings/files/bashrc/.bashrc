@@ -97,9 +97,10 @@ alias ....='cd ../../../../'
 alias .....='cd ../../../../' 
 alias .4='cd ../../../../' 
 alias .5='cd ../../../../..'
-alias b='cd ~/roi/bookcore'
-alias bm='b && m shell_plus'
-alias bf='b && fastmserve'
+alias jt='cd ~/jt'
+alias da='cd ~/jt/da'
+alias dev='cd ~/dev'
+alias etl='cd ~/jt/da/ETL'
 
 # migrate 
 alias pendingmigrations='m showmigrations | grep  '\''^\( \[ \]\|[a-zA-Z_]\+\)'\'''
@@ -232,3 +233,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # sometimes PS1 and git functions dont get loaded in the shell
 source /usr/lib/git-core/git-sh-prompt
+
+eval $(ssh-agent) >> /dev/null
+ssh-add -q ~/.ssh/id_jtgithub 
