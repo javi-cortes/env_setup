@@ -234,5 +234,5 @@ export NVM_DIR="$HOME/.nvm"
 # sometimes PS1 and git functions dont get loaded in the shell
 source /usr/lib/git-core/git-sh-prompt
 
-eval $(ssh-agent) >> /dev/null
+eval $(ssh-agent -s 2> /dev/null)
 ssh-add -q ~/.ssh/id_jtgithub 
