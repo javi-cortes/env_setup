@@ -8,21 +8,17 @@ This playbook installs i3-gaps and some additional tools to provide a complete i
 
 This Ansible role installs the following components:
 
-  * [i3-gaps](https://github.com/Airblader/i3) the tiling window manager with a custom config.
-  * [rofi](https://davedavenport.github.io/rofi/): A window switcher, run dialog and dmenu replacement
-  * [compton](https://github.com/chjj/compton) a compositor for X11.
+  * [sway](https://swaywm.org/)
   * [ansible](https://www.ansible.com/)
   * [sublime](https://www.sublimetext.com/)
   * [fzf](https://www.sublimetext.com/)
   * [vscode](https://code.visualstudio.com/)
   * [docker](https://www.docker.com/)
-  * [docker-compose](https://docs.docker.com/compose/)
   * [google-chrome]
   * [firefox]
   * [node](https://nodejs.org/en/)
   * [libreoffice]
   * [vlc]
-  * [openfortigui]
   * [zoom]
   * [silversearcher-ag](https://github.com/ggreer/the_silver_searcher)
   * [pulseaudio]
@@ -89,14 +85,4 @@ vagrant provision
   * Install all python versions
   * Install aws
   * Install wormhole
-  * upgrade docker compose version: https://stackoverflow.com/a/49839172
-  * Polybar
-  * kdiff3
-  * docker compose https://docs.docker.com/compose/install/
-  * Lightdm greeter:https://github.com/nick92/Enso-OS/tree/master/greeter
-  * https://github.com/AdguardTeam/AdGuardHome#getting-started
-  * Remove login box rendered on betterlockscreen
-  * change dns server modify /etc/resolve.conf
-  ** https://www.unixmen.com/how-to-find-best-and-fast-dns-servers-to-optimize-your-internet-speed/
-  ** https://www.tecmint.com/set-permanent-dns-nameservers-in-ubuntu-debian/
 
