@@ -1,0 +1,28 @@
+---
+- name: Install sway and dependencies
+  apt: pkg={{item}} update_cache=true force=yes state=present
+  with_items:
+   - sway
+   - swaybar
+   - sway-notification-center
+   - swayidle
+   - swaylock
+   - swaybg
+  become: true
+
+- name: Ensure sway config, config.d and scripts
+  copy: src={{item}} dest=/home/{{remote_user}}/.config/sway/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
+  with_fileglob:
+   - sway/*
+
+- name: Ensure swaylock config
+  copy: src={{item}} dest=/home/{{remote_user}}/.config/swaylock/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
+  with_fileglob:
+   - swaylock/*
+
+- name: Ensure waybar config
+  copy: src={{item}} dest=/home/{{remote_user}}/.config/waybar/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
+  with_fileglob:
+   - waybar/*
+
+

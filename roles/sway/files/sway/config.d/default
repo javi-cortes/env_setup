@@ -1,0 +1,250 @@
+#
+# Variables:
+#
+set {
+  $mod Mod4
+  $left h
+  $down j
+  $up k
+  $right l
+
+  $resize_factor 40px
+
+  $browser google-chrome
+  $private-browser google-chrome --private-window
+}
+
+# use these keys for focus, movement, and resize directions when reaching for
+# the arrows is not convenient
+set $up i
+set $down k
+set $left j
+set $right l
+# Mod4 => windows key
+# Mod1 => Alt (left) key
+set $mod Mod4
+set $alt Mod1
+
+# Terminal:
+set $terminal alacritty
+
+# use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+focus_follows_mouse no
+
+# start a terminal
+bindsym $mod+Return exec $terminal
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start wofi (a program launcher)
+bindsym $mod+d exec wofi --show=drun
+
+# change focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+# bindsym $mod+minus scratchpad show, resize set 1600 920, move position center
+bindsym $mod+minus scratchpad show
+
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# cycle between workspace 
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
+# move workspace
+bindsym $mod+Ctrl+Shift+j move workspace to output left
+bindsym $mod+Ctrl+Shift+l move workspace to output right
+
+# alternate workspaces
+bindsym $alt+Tab workspace back_and_forth
+
+# restart sway inplace 
+bindsym $mod+Shift+r reload
+
+bindsym --whole-window {
+    $mod+button4 workspace prev
+    $mod+button5 workspace next
+}
+
+# NOTE: to resize just $mod + RMB
+# resize window (you can also use the mouse for that)
+set $resize_mode Resize: Use     or i j k l
+bindsym $mod+r mode "$resize_mode"
+mode "$resize_mode" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym $left       resize shrink width 10 px or 10 ppt
+        bindsym $down       resize grow height 10 px or 10 ppt
+        bindsym $up         resize shrink height 10 px or 10 ppt
+        bindsym $right      resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+
+set $mode_power Power: [l] lock [e] logout [s] suspend [h] hibernate [r] reboot [p] shutdown
+bindsym Control+$alt+l mode "$mode_power"
+mode "$mode_power" {
+    bindsym l mode "default", exec swaylock
+    bindsym e mode "default", exit
+    bindsym s mode "default", exec systemctl suspend
+    bindsym h mode "default", exec systemctl hibernate
+    bindsym r mode "default", exec systemctl reboot
+    bindsym p mode "default", exec systemctl poweroff
+    
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# Start swaybar to display a workspace bar (plus the system information swaybar
+# finds out, if available)
+bar {
+  swaybar_command waybar
+} 
+
+
+# pactl list short  sinks # check the first number and choose that one as the sink
+# Pulse Audio controls
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+# check cards available and its number
+#     cat /proc/asound/cards
+# check card and set by default the on u need
+#     cat /etc/asound.conf 
+#        defaults.pcm.card 0
+#        defaults.ctl.card 0
+
+# Change default sound sink 
+#    pact list short sinks
+# Edit /etc/pulse/default.pa with the desired sink
+#    set-default-sink <sink-number>
+# Reload pulseaudio
+#    pulseaudio -k
+
+# Screen brightness controls
+# Brightness monitor laptop
+bindsym --locked XF86MonBrightnessUp exec brightnessctl s +5% 
+bindsym --locked XF86MonBrightnessDown exec brightnessctl s 5%-
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+input * repeat_delay 250
+input * repeat_rate 100
+
+# Screen Shots
+bindsym Print exec IMG=~/Pictures/$(date +%Y-%m-%d_%H-%m-%s).png && grim -g "$(slurp)" $IMG && wl-copy < $IMG
+
+# Disable xwayland
+# xwayland disable
+
+include /etc/sway/config.d/* 

@@ -1,0 +1,48 @@
+---
+# change this to its own, is getting mine
+# path: "{{ i3_gaps_git_path | dirname }}"
+i3_gaps_git_path: "/home/{{remote_user}}/.cache/i3-gaps-git"
+i3_gaps_git_url: https://github.com/Airblader/i3 
+i3_lock_color_url: https://github.com/Raymo111/i3lock-color.git
+i3_lock_color_path: "/tmp/i3lock-color"
+
+i3_gaps_build_dependencies:
+  - autoconf
+  - automake
+  - curl
+  - gcc
+  - i3lock
+  - git
+  - i3status
+  - libcairo2-dev
+  - libev-dev
+  - libfontconfig1-dev
+  - libjpeg-dev
+  - libpam0g-dev
+  - libpango1.0-dev
+  - libstartup-notification0-dev
+  - libx11-xcb-dev
+  - libxcb-composite0-dev
+  - libxcb-cursor-dev
+  - libxcb-icccm4-dev
+  - libxcb-image0-dev
+  - libxcb-keysyms1-dev
+  - libxcb-randr0-dev
+  - libxcb-shape0
+  - libxcb-shape0-dev
+  - libxcb-util-dev
+  - libxcb-util0-dev
+  - libxcb-xinerama0-dev
+  - libxcb-xkb-dev
+  - libxcb-xrm-dev
+  - libxcb-xrm0
+  - libxcb1-dev
+  - libxkbcommon-dev
+  - libxkbcommon-x11-dev
+  - libyajl-dev
+  - make
+  - meson
+  - ninja-build
+  - pkg-config
+  - xcb
+

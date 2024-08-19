@@ -7,11 +7,13 @@
       add_ssh_pkeys: false
       sym_links: false
     roles:
-      - i3-gaps
+      - sway
       - { role: ssh, when: add_ssh_pkeys|bool == true }
       - utilities
       - system-settings
+      - themes
       - sublime
+      - node
       - fzf
       - vscode
       - docker
@@ -21,15 +23,11 @@
       - node
       - libreoffice
       - vlc
-      - openfortigui  # fix release date file
-      - zoom
       - silversearcher-ag
       - pulseaudio
       - ansible
-      - pycharm
       - slack
-      - outlook
       - keepass
+      - pycharm
       - dropbox
-      - themes
       - { role: symbolic-link, when: sym_links|bool == true }

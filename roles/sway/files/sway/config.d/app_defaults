@@ -1,0 +1,18 @@
+# set floating (nontiling) for special apps:
+for_window [app_id="pavucontrol" ] floating enable, resize set width 40 ppt height 30 ppt
+for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
+
+# set floating for window roles
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+for_window [window_role="About"] floating enable
+for_window [title="File Operation Progress"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
+for_window [title="Picture in picture"] floating enable, sticky enable
+for_window [title="Save File"] floating enable
+
+# Inhibit idle
+for_window [app_id="Chromium"] inhibit_idle fullscreen

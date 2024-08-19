@@ -1,65 +1,21 @@
 ---
-- name: Ensure packages
-  apt: pkg={{item}} update_cache=true force=yes state=present
-  with_items:
-   - compton
-   - rofi
-   - terminator 
-  become: true
-
-- name: Ensure rofi config files
-  copy: src={{item}} dest=/home/{{remote_user}}/.config/rofi/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
-  with_fileglob:
-    - rofi/*
-
-- name: Ensure compton config
-  copy: src={{item}} dest=/home/{{remote_user}}/config/compton/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
-  with_fileglob:
-    - compton/*
-
-- name: Ensure terminator config files
-  copy: src={{item}} dest=/home/{{remote_user}}/.config/terminator/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
-  with_fileglob:
-    - terminator/*
-
 - name: Ensure wallpapers folder exists
   file:
     path: "{{wallpapers_path}}"
     state: directory
     mode: 0755
 
-- name: Ensure wallpapers (for betterlockscren) folder exists
-  file:
-    path: "{{i3lock_cache_folder}}"
-    state: directory
-    mode: 0755
-
-- name: Ensure wallpapers (for betterlockscren) folder exists
-  file:
-    path: "{{i3lock_cache_folder_res}}"
-    state: directory
-    mode: 0755
-
-- name: Create a current symbolic link (for betterlockscren)
-  file:
-    src: "{{i3lock_cache_folder_res}}"
-    dest: "{{i3lock_cache_folder}}/current"
-    owner: "{{remote_user}}"
-    group: "{{remote_user}}"
-    state: link
-
 - name: Copy all wallpapers 
-  copy: src={{item}} dest=/home/{{remote_user}}/.config/wallpapers/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
+  copy: src={{item}} dest=/home/{{remote_user}}/.wallpapers/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
   with_fileglob:
     - wallpapers/*
-
-- name: Copy all wallpapers resized (used by betterlockscren)
-  copy: src={{item}} dest=/home/{{remote_user}}/.cache/i3lock/current/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
-  with_fileglob:
-    - wallpapers_resized/*
 
 - name: Install fonts
   apt: pkg={{item}} update_cache=true force=yes state=present
   with_items:
    - fonts-noto-color-emoji
+   - fonts-font-awesome
+   - fonts-google
+   - fonts-dejavu
+   - fonts-roboto
   become: true

@@ -1,0 +1,51 @@
+default_border pixel 4
+default_floating_border pixel 4
+
+smart_borders on
+gaps inner 5
+gaps outer 5
+
+# PYCHARM FOCUS ISSUE
+for_window [class="^jetbrains-.+"][window_type=dialog] focus
+# PYCHARM MENU
+for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
+
+# NOTE: get class and app_ids doing:
+# swaymsg -t get_tree
+set $opacity_transparent 0.8
+for_window [class=".*"] opacity $opacity_transparent
+for_window [app_id=".*"] opacity $opacity_transparent 
+
+# OPACITY EXCEPTIONS
+for_window [class="Google-chrome"] opacity 1 
+for_window [class="jetbrains-pycharm"] opacity 1 
+for_window [class="code-oss"] opacity 1 
+for_window [app_id="sublime_text"] opacity 1 
+for_window [class="vlc"] opacity 1 
+for_window [class="Code"] opacity 1 
+
+#
+# Colors:
+#
+set {
+  $accent #ebdbb2
+  $red #cc241d
+  $darkgray #3c3836
+}
+
+client.focused          $accent $accent $darkgray $accent $accent
+client.focused_inactive $darkgray $darkgray $accent $darkgray $darkgray
+client.unfocused        $darkgray $darkgray $accent $darkgray $darkgray
+client.urgent           $red $red $accent $red $red
+
+
+# Background wallpaper setup
+# Note: good wallpapers sites
+# https://unsplash.com/es
+# https://wallhaven.cc/
+set $wallpaper_dir $HOME/.wallpapers
+
+output DP-3 bg `find $wallpaper_dir -type f | shuf -n 1` fill
+output DP-4 bg `find $wallpaper_dir -type f | shuf -n 1` fill
+output eDP-1 bg `find $wallpaper_dir -type f | shuf -n 1` fill
+

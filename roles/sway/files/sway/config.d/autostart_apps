@@ -1,0 +1,13 @@
+# desktop notifications
+exec swaync
+
+# network applet
+exec_always nm-applet --indicator
+
+
+### Idle configuration
+exec_always swayidle -w\
+    timeout 600 'swaylock -f'\
+    timeout 800 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaylock'

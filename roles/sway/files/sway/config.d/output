@@ -1,0 +1,40 @@
+# monitor positions
+# Left Monitor (DP-3)
+output DP-3 {
+    resolution 1920x1080
+    position 0 0
+    scale 1
+}
+
+# Center Monitor (DP-4)
+output DP-4 {
+    resolution 3440x1440
+    position 1920 0
+    scale 1
+}
+
+# Right Monitor (eDP-1)
+output eDP-1 {
+    resolution 2880x1800
+    position 5360 0
+    scale 2
+}
+
+# NOTE: to set primary do "output eDP-1 primary"
+
+# OPEN workspaces in monitors by default
+# RIGHT MONITOR
+workspace $ws10 output eDP-1
+
+# CENTER MONITOR
+workspace $ws1 output DP-4
+workspace $ws2 output DP-4
+workspace $ws3 output DP-4
+workspace $ws4 output DP-4
+
+# LEFT MONITOR
+workspace $ws5 output DP-3
+workspace $ws6 output DP-3
+workspace $ws7 output DP-3
+workspace $ws8 output DP-3
+workspace $ws9 output DP-3

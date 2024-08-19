@@ -1,0 +1,10 @@
+# keyboard layout set to spaniard
+input * xkb_layout es
+
+input {
+  type:touchpad {
+    tap enabled
+    middle_emulation enabled
+    dwt disabled
+  }
+}

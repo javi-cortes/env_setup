@@ -1,40 +1,12 @@
 ---
 # Uninstall all theme releated packages and configs
 
-- name: Removed apt repositories
-  apt_repository: repo='{{item}}' state=absent update_cache=yes
-  with_items:
-    - ppa:linuxmint-tr/araclar
-
-- name: Uninstall packages
-  apt: pkg={{item}} force=yes state=absent
-  with_items:
-   - lightdm-gtk-greeter
-   - compton
-   - conky
-   - conky-all
-   - conky-manager
-   - conky-manager-extra
-
-- name: Remove conky config
-  file: path=/home/{{remote_user}}/.conky state=absent
-
-- name: Remove compton config
-  file: path=/home/{{remote_user}}/.compton.conf state=absent
-
-- name: Restore lightdm theme
-  lineinfile: dest=/etc/lightdm/lightdm-gtk-greeter.conf regexp="^theme-name.*" line="theme-name=Greybird" state=present
-
-- name: Restore lightdm icon theme
-  lineinfile: dest=/etc/lightdm/lightdm-gtk-greeter.conf regexp="^icon-theme-name.*" line="icon-theme-name=elementary-xfce-dark"  state=present
-
-- name: Remove lightdm background
-  lineinfile: dest=/etc/lightdm/lightdm-gtk-greeter.conf regexp="^background.*" state=absent
-
-- name: Remove lightdm user background
-  lineinfile: dest=/etc/lightdm/lightdm-gtk-greeter.conf regexp="^user-background.*" state=absent
-
 - name: Install fonts
   apt: pkg={{item}} update_cache=true force=yes state=absent
   with_items:
    - fonts-noto-color-emoji
+   - fonts-noto-color-emoji
+   - fonts-font-awesome
+   - fonts-google
+   - fonts-dejavu
+   - fonts-roboto

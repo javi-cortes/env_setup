@@ -7,12 +7,13 @@
     name: "{{ utilities_dependencies }}"
   become: true
 
-- name: Download vagrant package
-  get_url:
-    url: https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.deb
-    dest: /tmp/vagrant-installer.deb
-    
-- name: Install vagrant chrome 
-  apt:
-    deb: /tmp/vagrant-installer.deb
-  become: true
+
+- name: Ensure alacritty config files
+  copy: src={{item}} dest=/home/{{remote_user}}/.config/alacritty/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
+  with_fileglob:
+   - alacritty/*
+
+- name: Ensure wofi config files
+  copy: src={{item}} dest=/home/{{remote_user}}/.config/wofi/ owner={{remote_user}} group={{remote_user}} mode='u=rw'
+  with_fileglob:
+   - wofi/*

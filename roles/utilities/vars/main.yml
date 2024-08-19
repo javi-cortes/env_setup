@@ -1,20 +1,17 @@
 ---
 utilities_dependencies:
-  - autorandr
-  - x11-xserver-utils # xrandr
-  - feh
-  - xautolock
-  - imagemagick # adds mogrify
   - nmap
   - locate
   - vim
   - virtualbox
   - htop
   - pavucontrol
-  - openvpn
-  - net-tools
   - keychain
   - cmake
-  #- ipython
+  - wofi
+  - slurp
+  - grim
+  - wl-clipboard  
+  - alacritty  
 
 

@@ -1,0 +1,34 @@
+# SWAY PENDING STUFF
+
+MONITORS: 
+    problemas con monitores probar
+    WLR_DRM_NO_MODIFIERS=1
+    
+
+    swaymsg exit
+
+    sway
+    swaymsg output DP-4 toggle
+
+
+    thread: https://github.com/swaywm/sway/issues/5759
+
+
+CHROME SLOW:
+     cat  .local/share/applications/chrome-fhbjgbiflinjbdggehcddcbncdddomop-Default.desktop
+    #!/usr/bin/env xdg-open
+    [Desktop Entry]
+    Version=1.0
+    Terminal=false
+    Type=Application
+    Name=Postman
+    Exec=/opt/google/chrome/google-chrome --profile-directory=Default --app-id=fhbjgbiflinjbdggehcddcbncdddomop --enable-features=WaylandWindowDecorations --ozone-platform-hint=auto %U
+    Icon=chrome-fhbjgbiflinjbdggehcddcbncdddomop-Default
+    StartupWMClass=crx_fhbjgbiflinjbdggehcddcbncdddomop
+
+
+    # SO FAR:
+    # ADDED THIS TO THE CHROME LAUNCHER
+    07:20:33 ~ λ cat /usr/bin/google-chrome
+    # --enable-features=UseOzonePlatform --ozone-platform=wayland --disable-gpu-driver-bug-workarounds 
+    exec -a "$0" "$HERE/chrome" --enable-features=UseOzonePlatform --ozone-platform=wayland --disable-gpu-driver-bug-workarounds "$@"

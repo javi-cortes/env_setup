@@ -1,4 +1,2 @@
 ---
-wallpapers_path: "/home/{{remote_user}}/.config/wallpapers"
-i3lock_cache_folder: "/home/{{remote_user}}/.cache/i3lock/"
-i3lock_cache_folder_res: "{{i3lock_cache_folder}}/7280x1440"
+wallpapers_path: "/home/{{remote_user}}/.wallpapers"

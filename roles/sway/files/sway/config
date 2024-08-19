@@ -1,0 +1,6 @@
+# +---------------------------+
+# | SwayWM Configuration file |
+# +---------------------------+
+
+# user config directory
+include $HOME/.config/sway/config.d/*
