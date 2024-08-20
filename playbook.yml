@@ -7,27 +7,27 @@
       add_ssh_pkeys: false
       sym_links: false
     roles:
-      - sway
-      - { role: ssh, when: add_ssh_pkeys|bool == true }
-      - utilities
-      - system-settings
-      - themes
-      - sublime
-      - node
-      - fzf
-      - vscode
-      - docker
-      - docker-compose
-      - google-chrome
-      - firefox
-      - node
-      - libreoffice
-      - vlc
-      - silversearcher-ag
-      - pulseaudio
-      - ansible
-      - slack
-      - keepass
-      - pycharm
-      - dropbox
+      # - sway
+      # - { role: ssh, when: add_ssh_pkeys|bool == true }
+      # - utilities
+      # - system-settings
+      # - themes
+      # - sublime
+      # - node
+      # - fzf
+      # - vscode
+      # - docker
+      # - docker-compose
+      # - google-chrome
+      # - firefox
+      # - node
+      # - libreoffice
+      # - vlc
+      # - silversearcher-ag
+      # - pulseaudio
+      # - ansible
+      # - slack
+      # - keepass
+      # - pycharm
+      # - dropbox
       - { role: symbolic-link, when: sym_links|bool == true }

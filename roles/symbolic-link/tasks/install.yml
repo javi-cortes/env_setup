@@ -7,8 +7,26 @@
     state: link
     force: yes
   with_items:
-    - { src: "{{playbook_dir}}/roles/i3-gaps/files/i3/config", dest: "/home/{{remote_user}}/.config/i3/config" }
-    - { src: "{{playbook_dir}}/roles/i3-gaps/files/i3status/config", dest: "/home/{{remote_user}}/.config/i3status/config" }
+    # sway stuff
+    - { src: "{{playbook_dir}}/roles/sway/files/sway/config", dest: "/home/{{remote_user}}/.config/sway/config" }
+    - { src: "{{playbook_dir}}/roles/sway/files/sway/config.d", dest: "/home/{{remote_user}}/.config/sway/config.d" }
+    - { src: "{{playbook_dir}}/roles/sway/files/sway/scripts", dest: "/home/{{remote_user}}/.config/sway/scripts" }
+    - { src: "{{playbook_dir}}/roles/sway/files/swaylock/config", dest: "/home/{{remote_user}}/.config/swaylock/config" }
+    - { src: "{{playbook_dir}}/roles/sway/files/waybar/config", dest: "/home/{{remote_user}}/.config/waybar/config" }
+    - { src: "{{playbook_dir}}/roles/sway/files/waybar/style.css", dest: "/home/{{remote_user}}/.config/waybar/style.css" }
+    - { src: "{{playbook_dir}}/roles/sway/files/waybar/style.css", dest: "/home/{{remote_user}}/.config/waybar/style.css" }
+    
+    # alacritty
+    - { src: "{{playbook_dir}}/roles/utilities/files/alacritty/alacritty.toml", dest: "/home/{{remote_user}}/.config/alacritty/alacritty.toml" }
+
+    # wofi
+    - { src: "{{playbook_dir}}/roles/utilities/files/wofi/config", dest: "/home/{{remote_user}}/.config/wofi/config" }
+    - { src: "{{playbook_dir}}/roles/utilities/files/wofi/style.css", dest: "/home/{{remote_user}}/.config/wofi/style.css" }
+
+    # wallpapers
+    - { src: "{{playbook_dir}}/roles/themes/files/wallpapers", dest: "/home/{{remote_user}}/.wallpapers" }
+
+    # misc
     - { src: "{{playbook_dir}}/roles/system-settings/files/vimrc/.vimrc", dest: "/home/{{remote_user}}/.vimrc" }
     - { src: "{{playbook_dir}}/roles/system-settings/files/xinitrc/.xinitrc", dest: "/home/{{remote_user}}/.xinitrc" }
     - { src: "{{playbook_dir}}/roles/system-settings/files/git_prompt_custom/.git_prompt_custom", dest: "/home/{{remote_user}}/.git_prompt_custom" }
