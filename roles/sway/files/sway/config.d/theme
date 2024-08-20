@@ -17,18 +17,20 @@ for_window [class=".*"] opacity $opacity_transparent
 for_window [app_id=".*"] opacity $opacity_transparent 
 
 # OPACITY EXCEPTIONS
-for_window [class="Google-chrome"] opacity 1 
+for_window [app_id="google-chrome"] opacity 1 
+for_window [app_id="firefox"] opacity 1 
 for_window [class="jetbrains-pycharm"] opacity 1 
 for_window [class="code-oss"] opacity 1 
 for_window [app_id="sublime_text"] opacity 1 
 for_window [class="vlc"] opacity 1 
 for_window [class="Code"] opacity 1 
+for_window [class="Slack"] opacity 1 
 
 #
 # Colors:
 #
 set {
-  $accent #ebdbb2
+  $accent #4caf50
   $red #cc241d
   $darkgray #3c3836
 }
@@ -48,4 +50,3 @@ set $wallpaper_dir $HOME/.wallpapers
 output DP-3 bg `find $wallpaper_dir -type f | shuf -n 1` fill
 output DP-4 bg `find $wallpaper_dir -type f | shuf -n 1` fill
 output eDP-1 bg `find $wallpaper_dir -type f | shuf -n 1` fill
-

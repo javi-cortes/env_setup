@@ -62,7 +62,7 @@ chmod +x vault_secret.sh
 
 ansible-vault encrypt path/to/my/pkeys/id_rsa*
 ```
-
+ 
 
 ## Testing your playbook with Vagrant
 

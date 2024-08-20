@@ -2,15 +2,19 @@
     username = Javier Cortés <javier.cortes.ortega@gmail.com>
 [user]
     name = Javier Cortés
-    email = javier.cortes@gmail.com
+    email = javier.cortes.ortega@gmail.com
+
+# UPDATE WORK DIR
+# create in the main folder workdir a .gitconfig with
+# [user]
+#    email = javi.cortes@workplace.com
+[includeIf "gitdir:~/workdir/"]
+    path = ~/workdir/.gitconfig
+
 [core]
     editor = vim
 [merge]
     tool = kdiff3
-
-#[branch "master"]
-#    mergeoptions = --no-ff
-
 [diff]
     guitool = kdiff3
 [mergetool "kdiff3"]

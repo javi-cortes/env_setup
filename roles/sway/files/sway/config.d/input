@@ -1,6 +1,9 @@
 # keyboard layout set to spaniard
 input * xkb_layout es
 
+# Enable num lock by default
+input 6940:6985:Corsair_CORSAIR_K70_RGB_MK.2_Mechanical_Gaming_Keyboard xkb_numlock enabled
+
 input {
   type:touchpad {
     tap enabled

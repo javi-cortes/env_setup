@@ -4,10 +4,27 @@ exec swaync
 # network applet
 exec_always nm-applet --indicator
 
+exec_always pkill swayidle
 
 ### Idle configuration
-exec_always swayidle -w\
-    timeout 600 'swaylock -f'\
-    timeout 800 'swaymsg "output * dpms off"' \
+exec_always swayidle -w \
+    timeout 600 'swaylock -f' \
+    timeout 1200 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' \
-    before-sleep 'swaylock'
+    before-sleep 'swaylock -f'
+
+
+# START apps in specific workspaces
+
+# Start Chrome with the Default profile in workspace 5
+exec --no-startup-id swaymsg 'workspace 5; exec google-chrome --profile-directory="Default"'  # personal chrome
+
+# Start Chrome with Profile 1 in workspace 6
+exec --no-startup-id swaymsg 'workspace 6; exec google-chrome --profile-directory="Profile 1"' # work chrome
+
+# Start Slack in workspace 10
+exec --no-startup-id swaymsg 'workspace 10; exec slack'
+
+# Start Sublime Text in workspace 1
+exec --no-startup-id swaymsg 'workspace 1; exec subl'
+
