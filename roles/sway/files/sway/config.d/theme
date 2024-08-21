@@ -45,7 +45,7 @@ client.urgent           $red $red $accent $red $red
 # Note: good wallpapers sites
 # https://unsplash.com/es
 # https://wallhaven.cc/
-set $wallpaper_dir $HOME/.wallpapers
+set $wallpaper_dir $(realpath $HOME/.wallpapers)
 
 output DP-3 bg `find $wallpaper_dir -type f | shuf -n 1` fill
 output DP-4 bg `find $wallpaper_dir -type f | shuf -n 1` fill
