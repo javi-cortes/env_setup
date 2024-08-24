@@ -28,6 +28,7 @@
       # - ansible
       # - slack
       # - keepass
+      # - python
       # - pycharm
       # - dropbox
       - { role: symbolic-link, when: sym_links|bool == true }

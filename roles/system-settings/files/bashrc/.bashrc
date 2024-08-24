@@ -209,3 +209,5 @@ export PATH="$PATH:/home/javier/.local/bin/"
 export WLR_DRM_NO_MODIFIERS=1
 
 export UV_INDEX_URL=https://dmrepository.datamaran.com:8443/repository/dmPYTHON/simple
+
+export AWS_PROFILE=javier

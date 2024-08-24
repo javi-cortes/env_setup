@@ -1,0 +1,44 @@
+---
+- name: Install Python 3.9, 3.10, 3.11, and 3.12 with distutils 
+  hosts: all
+  become: true
+  vars:
+    python_versions:
+      - 3.9
+      - 3.10
+      - 3.11
+      - 3.12
+    ubuntu_debian_repo: "ppa:deadsnakes/ppa"
+  tasks:
+    - name: Install prerequisites
+      apt:
+        name: software-properties-common
+        state: present
+
+    - name: Add deadsnakes PPA repository
+      apt_repository:
+        repo: "{{ ubuntu_debian_repo }}"
+
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install Python versions and distutils
+      apt:
+        name:
+          - "python{{ item }}"
+          - "python{{ item }}-distutils"
+        state: present
+      loop: "{{ python_versions }}"
+
+    - name: Verify Python versions installed
+      shell: "python{{ item }} --version"
+      loop: "{{ python_versions }}"
+      register: python_versions_output
+      ignore_errors: true
+
+    - name: Print Python versions
+      debug:
+        msg: "{{ item.stdout }}"
+      loop: "{{ python_versions_output.results }}"
+      when: item.rc == 0
