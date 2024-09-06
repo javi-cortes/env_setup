@@ -1,3 +1,5 @@
+include $HOME/.config/sway/config.d/common_variables
+
 default_border pixel 4
 default_floating_border pixel 4
 
@@ -18,8 +20,10 @@ for_window [app_id=".*"] opacity $opacity_transparent
 
 # OPACITY EXCEPTIONS
 for_window [app_id="google-chrome"] opacity 1 
+for_window [app_id="DBeaver"] opacity 1 
 for_window [app_id="firefox"] opacity 1 
 for_window [class="jetbrains-pycharm"] opacity 1 
+for_window [class="MongoDB Compass"] opacity 1 
 for_window [class="code-oss"] opacity 1 
 for_window [app_id="sublime_text"] opacity 1 
 for_window [class="vlc"] opacity 1 
@@ -47,6 +51,7 @@ client.urgent           $red $red $accent $red $red
 # https://wallhaven.cc/
 set $wallpaper_dir $(realpath $HOME/.wallpapers)
 
-output DP-3 bg `find $wallpaper_dir -type f | shuf -n 1` fill
-output DP-4 bg `find $wallpaper_dir -type f | shuf -n 1` fill
-output eDP-1 bg `find $wallpaper_dir -type f | shuf -n 1` fill
+output $central_monitor bg `find $wallpaper_dir -type f | shuf -n 1` fill
+output $left_monitor bg `find $wallpaper_dir -type f | shuf -n 1` fill
+output $laptop_monitor bg `find $wallpaper_dir -type f | shuf -n 1` fill
+output HDMI-A-1 bg `find $wallpaper_dir -type f | shuf -n 1` fill

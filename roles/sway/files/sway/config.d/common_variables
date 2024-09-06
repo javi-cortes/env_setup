@@ -1,0 +1,8 @@
+# Define common variables and include this file whenever its need
+
+# output monitors vars
+set {
+  $central_monitor DP-4
+  $left_monitor DP-3
+  $laptop_monitor eDP-1  
+} 
