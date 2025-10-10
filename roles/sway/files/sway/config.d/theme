@@ -19,16 +19,29 @@ for_window [class=".*"] opacity $opacity_transparent
 for_window [app_id=".*"] opacity $opacity_transparent 
 
 # OPACITY EXCEPTIONS
+for_window [class="Google-chrome"] opacity 1 
 for_window [app_id="google-chrome"] opacity 1 
 for_window [app_id="DBeaver"] opacity 1 
 for_window [app_id="firefox"] opacity 1 
 for_window [class="jetbrains-pycharm"] opacity 1 
+for_window [class="zoom"] opacity 1 
 for_window [class="MongoDB Compass"] opacity 1 
 for_window [class="code-oss"] opacity 1 
+for_window [class="Cursor"] opacity 1 
+for_window [class="Display-im6.q16-"] opacity 1 
+for_window [class="discord"] opacity 1 
 for_window [app_id="sublime_text"] opacity 1 
+for_window [app_id="viewnior"] opacity 1 
+for_window [class="libreoffice-calc"] opacity 1 
+for_window [class="viewnior"] opacity 1 
 for_window [class="vlc"] opacity 1 
+for_window [class="OpenLens"] opacity 1 
 for_window [class="Code"] opacity 1 
 for_window [class="Slack"] opacity 1 
+for_window [class="libreoffice-writer"] opacity 1 
+for_window [app_id="org.gnome.Nautilus"] opacity 1 
+for_window [app_id="org.shotcut.Shotcut"] opacity 1 
+for_window [class="kotlinx-coroutines-scheduling-CoroutineScheduler$Worker"] opacity 1 
 
 #
 # Colors:

@@ -11,3 +11,7 @@ input {
     dwt disabled
   }
 }
+
+input "1386:890:Wacom_One_by_Wacom_S_Pen" {
+    map_to_region 0 0 1920 1080
+}

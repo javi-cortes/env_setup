@@ -85,4 +85,5 @@ vagrant provision
   * Install all python versions
   * Install aws
   * Install wormhole
+  * Add meta docs config ln -s symlink to dropbox
 

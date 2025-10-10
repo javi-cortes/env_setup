@@ -149,6 +149,13 @@ bindsym $mod+Ctrl+Shift+l move workspace to output right
 # alternate workspaces
 bindsym $alt+Tab workspace back_and_forth
 
+# bind Mod+n to create/switch to the next workspace
+bindsym $mod+n exec ~/.config/sway/scripts/new_ws.sh
+
+# Mod+Shift+n → create+move+switch in one go
+bindsym $mod+Shift+n exec ~/.config/sway/scripts/new_ws_move.sh
+
+
 # restart sway inplace 
 bindsym $mod+Shift+r reload
 
@@ -229,8 +236,8 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 # Screen brightness controls
 # Brightness monitor laptop
-bindsym --locked XF86MonBrightnessUp exec brightnessctl s +5% 
-bindsym --locked XF86MonBrightnessDown exec brightnessctl s 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl -d intel_backlight set +5% 
+bindsym XF86MonBrightnessDown exec brightnessctl -d intel_backlight set 5%-
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play

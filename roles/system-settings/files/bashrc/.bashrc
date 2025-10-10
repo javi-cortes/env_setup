@@ -102,6 +102,10 @@ alias da='cd ~/jt/da'
 alias dev='cd ~/dev'
 alias etl='cd ~/jt/da/ETL'
 
+# kubernetes
+alias k=kubectl
+complete -o default -F __start_kubectl k
+
 # migrate 
 alias pendingmigrations='m showmigrations | grep  '\''^\( \[ \]\|[a-zA-Z_]\+\)'\'''
 
@@ -126,15 +130,19 @@ alias gitalias='git config --get-regexp alias'
 # test speed connection
 alias speed_test='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -'
 
+# git 
+alias git-pull-all-directories='find ~/datamaran -type d -name .git -prune -exec dirname {} \; | xargs -P8 -I{} bash -c '\''echo "Updating {}" && git -C {} pull'\'''
+alias git-switch-all-to-master='find ~/datamaran -type d -name .git -prune -exec dirname {} \; | xargs -P8 -I{} bash -c '\''echo "Checking {}" && git -C {} rev-parse --verify master > /dev/null 2>&1 && git -C {} checkout master || echo "No master branch in {}"'\'''
+
 
 # some more ls aliases
 alias ll='ls -alhF'
 alias la='ls -A'
 alias l='ls -CF'
 alias d='cd ~/datamaran'
+alias api='cd ~/datamaran/dmx_api'
+alias sapi='cd ~/datamaran/dm_submaran_api'
 
-# ngrok :) 
-alias ngrok='~/ngrok'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -204,10 +212,15 @@ LS_COLORS=$LS_COLORS:'di=0;36:'; export LS_COLORS
 
 # make py packages available
 export PATH="$PATH:/home/javier/.local/bin/"
+alias cursor='/opt/cursor.appimage' 
 
 # trying monitors config
 export WLR_DRM_NO_MODIFIERS=1
 
 export UV_INDEX_URL=https://dmrepository.datamaran.com:8443/repository/dmPYTHON/simple
 
-export AWS_PROFILE=javier
+export AWS_PROFILE=javier-prod
+
+. "$HOME/.local/bin/env"
+
+source <(kubectl completion bash)

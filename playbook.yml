@@ -7,10 +7,10 @@
       add_ssh_pkeys: false
       sym_links: false
     roles:
-      # - sway
+      - sway
       # - { role: ssh, when: add_ssh_pkeys|bool == true }
       # - utilities
-      # - system-settings
+      - system-settings
       # - themes
       # - sublime
       # - node
