@@ -1,7 +1,5 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc) # for examples
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -217,10 +215,13 @@ alias cursor='/opt/cursor.appimage'
 # trying monitors config
 export WLR_DRM_NO_MODIFIERS=1
 
-export UV_INDEX_URL=https://dmrepository.datamaran.com:8443/repository/dmPYTHON/simple
 
 export AWS_PROFILE=javier-prod
 
 . "$HOME/.local/bin/env"
 
 source <(kubectl completion bash)
+
+source ~/.code_artifacts_functions
+
+

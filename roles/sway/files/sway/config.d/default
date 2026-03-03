@@ -221,7 +221,7 @@ bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 # check cards available and its number
-#     cat /proc/asound/cards
+#     cat /proc/asound/cards'
 # check card and set by default the on u need
 #     cat /etc/asound.conf 
 #        defaults.pcm.card 0
