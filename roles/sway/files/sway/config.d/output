@@ -1,24 +1,38 @@
 include $HOME/.config/sway/config.d/common_variables
 
 # monitor positions
-# Left Monitor ($left_monitor)
+# Left Monitor ($left_monitor) - ASUS PA278QV 2560x1440
+# Descomenta UNA de las dos opciones:
+
+# --- VERTICAL (rotado 270, base hacia la derecha) ---
 output $left_monitor {
-    resolution 1920x1080
+    resolution 2560x1440
     position 0 0
     scale 1
+    transform 270
 }
 
+# --- HORIZONTAL (normal) ---
+# output $left_monitor {
+#     resolution 2560x1440
+#     position 0 0
+#     scale 1
+#     transform normal
+# }
+
 # Center Monitor ($central_monitor)
+# NOTE: x=1440 pega con borde derecho de $left_monitor en VERTICAL (2560 rota a 1440 ancho).
+# Si pasas $left_monitor a HORIZONTAL (2560 ancho), cambia a: position 2560 0 y laptop a 6000 0.
 output $central_monitor {
-    resolution 3440x1440
-    position 1920 0
+    mode 3440x1440@99.982Hz
+    position 1440 0
     scale 1
 }
 
 # Right Monitor ($laptop_monitor)
 output $laptop_monitor {
     resolution 2880x1800
-    position 5360 0
+    position 4880 0
     scale 2
 }
 

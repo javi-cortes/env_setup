@@ -2,7 +2,21 @@
 
 Ansible playbook to install and configure my dev env on Ubuntu.
 
-This playbook installs i3-gaps and some additional tools to provide a complete i3 environment.
+It sets up a full [sway](https://swaywm.org/) (Wayland) desktop plus the tools I
+use daily. It used to target i3 on X11; that is long gone.
+
+## What is NOT here
+
+This repo is **public**, so it deliberately holds nothing sensitive:
+
+  * no `.bashrc` and no shell history: the real ones carry credentials and work
+    paths, so they live in a separate private repo (`pc-setup`) instead
+  * no tokens, no API keys: those are loaded at shell startup from
+    `~/.config/secrets/*.env`, which is never versioned anywhere
+  * no ssh private keys in practice (`roles/ssh` is opt-in and empty)
+
+`pc-setup` is the private counterpart: real dotfiles, cron scripts, package
+inventories, and the runbook for moving to a new machine.
 
 ## Features
 

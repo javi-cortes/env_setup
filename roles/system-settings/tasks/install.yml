@@ -2,7 +2,6 @@
 - name: Ensure system dotfiles settings
   copy: src={{item}} dest=/home/{{remote_user}} owner={{remote_user}} group={{remote_user}} mode='u=rw' force=yes   
   with_fileglob:
-    - bashrc/.*
     - gitconfig/.*
     - git_prompt_custom/.*
     - javi/.*
@@ -11,11 +10,9 @@
     - xinitrc/.*
     - inputrc/.*
 
-- name: Ensure bash history dotfiles settings (when pasw defined)
-  copy: src={{item}} dest=/home/{{remote_user}} owner={{remote_user}} group={{remote_user}} mode='u=rw' force=yes   
-  with_fileglob:
-    - bash_history/.*
-  when: add_ssh_pkeys|bool == true 
+# NOTE: .bashrc y .bash_history ya no viven aqui. Este repo es publico y el
+# .bashrc real lleva credenciales y rutas de trabajo. Los gestiona el repo
+# privado pc-setup (make restore). Ver README, seccion "Que NO hay aqui".
 
 - name: Ensure we have keyboard es in .profile
   lineinfile:

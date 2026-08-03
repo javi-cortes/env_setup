@@ -2,7 +2,7 @@
 
 # output monitors vars
 set {
-  $central_monitor DP-1
+  $central_monitor DP-3
   $left_monitor DP-4
-  $laptop_monitor eDP-1  
+  $laptop_monitor eDP-1
 } 

@@ -11,6 +11,10 @@
 [includeIf "gitdir:~/workdir/"]
     path = ~/workdir/.gitconfig
 
+# Datamaran workspace: force work identity, never the personal gmail above
+[includeIf "gitdir:/home/javier/datamaran/"]
+    path = ~/.gitconfig-datamaran
+
 [core]
     editor = vim
 [merge]
